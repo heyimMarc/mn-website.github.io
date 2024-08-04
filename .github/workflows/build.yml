@@ -5,17 +5,33 @@ on: push
 jobs:
   build:
     name: Build and Deploy
-    runs-on: registry.gitlab.com/pages/hugo/hugo_extended:latest
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      # checkout to the commit that has been pushed
+      - uses: actions/checkout@v3
+
       - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2.6.0
+        with:
+          hugo-version: 'latest'
+          extended: true
+
+      - name: Update Hugo Modules
+        run: hugo mod tidy
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install node modules
         run: |
-          apk add --update --no-cache git go nodejs npm
-          hugo mod tidy
           hugo mod npm pack
-          npm install
-      - name: Hugo Build
-        run: $HOME/hugo --minify -v
+          npm install        
+
+      - name: Build
+        run: hugo --minify
+
       - name: Deploy to S3
         if: github.ref == 'refs/heads/master'
         run: $HOME/hugo -v deploy --maxDeletes -1 --invalidateCDN
