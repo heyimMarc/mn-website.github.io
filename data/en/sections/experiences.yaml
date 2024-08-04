@@ -6,68 +6,161 @@ section:
   weight: 3
   showOnNavbar: true
   # Can optionally hide the title in sections
-  # hideTitle: true 
+  # hideTitle: true
 
 # Your experiences
 experiences:
 - company:
-    name: Example Co.
-    url: "https://www.example.com"
-    location: Dhaka Branch
-    logo: /images/sections/experiences/company1.jpg
+    name: ista Deutschland GmbH
+    url: "https://www.ista.com"
+    location: Essen
+    logo: /images/sections/experiences/ista.png
     # Can optionally show a different logo for dark theme
     # darkLogo: /images/sections/experiences/company1.jpg
     # company overview
-    overview: Example Co. is a widely recognized company for cloud-native development. It builds tools for Kubernetes.
+    overview: ista Deutschland GmbH is one of the leading energy service providers for more energy efficiency in buildings, in apartment buildings and commercial properties.
   positions:
-  - designation: Senior Software Engineer
-    start: Nov 2019
+  - designation: Fullstack Developer
+    start: April 2020
     # don't provide end date if you are currently working there. It will be replaced by "Present"
     # end: Dec 2020
     # give some points about what was your responsibilities at the company.
     responsibilities:
-    - Design and develop XYZ tool for ABC task
-    - Design, develop and manage disaster recovery tool [Xtool](https://www.example.com) that backup Kubernetes volumes, databases, and cluster's resource definition.
-    - Lead backend team.
-
-  - designation: Junior Software Engineer
-    start: Nov 2017
-    end: Oct 2019
-    responsibilities:
-    - Implement and test xyz feature for abc tool.
-    - Support client for abc tool.
-    - Learn k,d,w technology for xyz.
+    - Develop Spring Boot Services, that consume data from multiple services and propagate those to a central system
+    - REST API Development (OpenApi 3.0)
+    - Write tests based on JUnit and Mockito.
+    - Dockerize the applications
+    - Migrate from Docker Swarm to Kubernetes
+    - Several migrations to Azure
+    - Consume and send data with JMS (ActiveMQ)
+    - Frontend development (Angular)
+    - Java, Spring Boot, Docker, Kubernetes, Hibernate, Liquibase, Angular, Gitlab CI, JUnit, Mockito, Spring Batch, Azure, Maven, MariaDB, PostgreSQL
 
 - company:
-    name: PreExample Co.
-    url: "https://www.example.com"
-    location: Nowhere
-    logo: /images/sections/experiences/company2.jpg
+    name: DB Schenker AG
+    url: "https://www.dbschenker.com"
+    location: Essen
+    logo: /images/sections/experiences/schenker.png
     # Can optionally show a different logo for dark theme
     # darkLogo: /images/sections/experiences/company2.jpg
-    overview: PreExample Co. is a gateway company to enter into Example co. So, nothing special here.
+    overview: DB Schenker is a leader in supply chain management and logistics solutions, handling everything from logistics to customized shipping solutions.
   positions:
-  - designation: Software Engineer
-    start: March 2016
-    end: May 2017
+  - designation: Java Backend Developer
+    start: Feb 2020
+    end: March 2020
     responsibilities:
-    - Write lots of example codes.
-    - Read lots of examples.
-    - See lots of example videos.
+    - Develop new business and integration services based on Java Technology
+    - Improve and implement entity relationship model and complex queries
+    - Improve and implement synchronous and asynchronous application interfaces
+    - Actively support the build and deployment process
+    - Object Oriented analysis and design using common design patterns.
+    - Designing and developing applications using Java EE and/or Spring
+    - Building Microservice Architectures for containerized Spring Boot Applications developing well designed REST APIs
+    - Building high-volume / low-latency applications and testing with load test tools, such as Gatling.io and JMeter
+    - Message Integration with JMS, ActiveMQ, Web- and Rest Services (Jax-RS & JSON, Jax-WS & SOAP)
+    - Developing web applications using Spring Boot
+    - Java, Spring Boot, Docker, Hibernate, Flyway, Gitlab CI, Spock, Kubernetes, AWS, Maven
 
-- company:
-    name: Intern Counting Company (ICC).
-    url: "https://www.example.com"
-    location: Intern Land
-    logo: /images/sections/experiences/company3.jpg
-    # Can optionally show a different logo for dark theme
-    # darkLogo: /images/sections/experiences/company3.jpg
-    overview: Intern counting Company (ICC) is responsible for counting worldwide intern Engineers.
-  positions:
-  - designation: Intern
-    start: Jun 2015
+  - designation: Lead Developer (perm position)
+    start: Feb 2018
+    end: Jan 2020
+    responsibilities:
+    - Design and write a microservice architecture for route planning
+    - Build up a national team of developers with external resources
+    - Implement CI/CD Pipelines
+    - Develop the first MVP with external team
+    - Build up an international team in Poland with a size of 6 developers
+    - Handover Project to team in Poland
+    - Build up a Lead position in Poland
+    - Java, Spring Boot, Docker, Hibernate, Flyway, Gitlab CI, Spock, Kubernetes, AWS, PostgreSQL, Maven
+
+  - designation: Java Backend Developer (perm position)
+    start: Jan 2017
+    end: Jan 2018
+    responsibilities:
+    - Design and write a application that should be a layer for legacy application
+    - Being part of a Team of 4 Developers located in Essen
+    - Hold Project Deadline
+    - Java, Spring Boot, Docker, Hibernate, Flyway, Gitlab CI, JUnit, Kubernetes, AWS, VueJs, Netflix Stack, PostgreSQL, Maven
+
+  - designation: Java Backend Developer (perm position)
+    start: Jan 2016
+    end: Jan 2017
+    responsibilities:
+    - Support the initiative to move Schenker applications to AWS Cloud
+    - Beeing part of a Team of 10 Developers located in Essen
+    - Build up AWS VPC
+    - Provide AMI's
+    - Provide Docker support containers for CI pipelines
+    - Dockerize legacy applications
+    - Kubernetes, Docker, Terraform, Packer, Gitlab CI, Ansible, Python, Spring Boot, Oracle, PostgreSQL
+
+  - designation: Fullstack Developer (perm position)
+    start: August 2015
     end: Jan 2016
     responsibilities:
-    - Count lost of interns.
-    - Count more interns.
-    - Count me as an intern.
+    - Create a selfservice for Atlassian Confluence and Jira
+    - Java, Spring Boot, Gradle, VueJs, NPM
+
+  - designation: Fullstack Developer (perm position)
+    start: August 2014
+    end: August 2015
+    responsibilities:
+    - Support development of Selfservice for IAM Application
+    - Work with international Team (China) of 5 developers
+    - Java, Spring Boot, Maven, AngularJs, Oracle
+
+- company:
+    name: Plus Online GmbH
+    #url: "https://www.example.com"
+    location: Mülheim an der Ruhr
+    logo: /images/sections/experiences/plus.png
+    # Can optionally show a different logo for dark theme
+    # darkLogo: /images/sections/experiences/company3.jpg
+    overview: Plus Online GmbH was part of the Unternehmensgruppe Tengelmann and responsible for the e-commerce section.
+  positions:
+  - designation: Lead Developer (perm position)
+    start: August 2011
+    end: July 2014
+    responsibilities:
+    - Vice Lead Developer
+    - Supporting and mentoring team during development process
+    - Active part in development process specialiced in topics of payment processes and api design
+    - Java, Intershop Enfinity, Servlets, JSP, Angular, Oracle
+
+  - designation: Fullstack Developer (perm position)
+    start: April 2010
+    end: July 2011
+    responsibilities:
+    - Java, Intershop Enfinity, Servlets, JSP, Angular, Oracle
+
+  - designation: System Administrator (perm position)
+    start: April 2008
+    end: March 2010
+    responsibilities:
+    - Administration of e-commerce infrastructure (Webshop)
+    - Intershop Enfinity, Suse Linux, Apache Tomcat, Apache, Bash scripting
+
+- company:
+    name: Düsseldorf District Government
+    url: "https://www.brd.nrw.de"
+    location: Düsseldorf
+    logo: /images/sections/experiences/bezregdue.png
+    # Can optionally show a different logo for dark theme
+    # darkLogo: /images/sections/experiences/company3.jpg
+    overview: Part of the executive of the district NRW.
+  positions:
+    - designation: Lead Developer (perm position)
+      start: Jan 2008
+      end: March 2008
+      responsibilities:
+      - Administration Server infrastructure
+      - Customer Care for end users
+      - Debian Linux, Windows Server 2000, LDAP
+    - designation: IT Apprentice
+      start: Aug 2005
+      end: Jan 2008
+      responsibilities:
+      - Administration Server infrastructure
+      - Customer Care for end users
+      - Debian Linux, Windows Server 2000, LDAP
