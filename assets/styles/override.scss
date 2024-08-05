@@ -2,6 +2,18 @@
         background: none;
 }
 
+html[data-theme='dark'] .home img {
+        background: none;
+}
+
 .experiences-section .circle {
         color: white;
+}
+
+html[data-theme='dark'] .experiences-section .circle {
+        color: white;
+}
+
+html[data-theme='dark'] .filled-button {
+        color: white !important;
 }
