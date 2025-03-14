@@ -22,9 +22,6 @@ experiences:
   positions:
   - designation: DevOps Engineer
     start: March 2025
-    # don't provide end date if you are currently working there. It will be replaced by "Present"
-    # end: Dec 2020
-    # give some points about what was your responsibilities at the company.
     responsibilities:
     - Conception, development, and maintenance of the infrastructure for Continuous Integration and Continuous Delivery, including (but not limited to) pipeline templates, DevOps tooling, and Infrastructure-as-Code templates – from the initial idea to a running pipeline.
     - Active contribution to the further development of development, test, and production environments.
@@ -34,6 +31,7 @@ experiences:
     - Definition of the cloud architecture for centralized and squad-specific DevOps use cases.
     - Execution of development and IT operations (DevOps).
     - Azure, Gitlab CI, Terraform, Kubernetes, Helm
+
   - designation: Fullstack Developer
     start: April 2020
     end: March 2025
