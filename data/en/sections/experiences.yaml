@@ -20,11 +20,23 @@ experiences:
     # company overview
     overview: ista Deutschland GmbH is one of the leading energy service providers for more energy efficiency in buildings, in apartment buildings and commercial properties.
   positions:
-  - designation: Fullstack Developer
-    start: April 2020
+  - designation: DevOps Engineer
+    start: March 2025
     # don't provide end date if you are currently working there. It will be replaced by "Present"
     # end: Dec 2020
     # give some points about what was your responsibilities at the company.
+    responsibilities:
+    - Conception, development, and maintenance of the infrastructure for Continuous Integration and Continuous Delivery, including (but not limited to) pipeline templates, DevOps tooling, and Infrastructure-as-Code templates – from the initial idea to a running pipeline.
+    - Active contribution to the further development of development, test, and production environments.
+    - Implementation of DevOps.
+    - Further development, maintenance, and, if necessary, operation of the deployed tools.
+    - Consulting & mentoring of development teams in building the application lifecycle solution with a focus on CI/CD.
+    - Definition of the cloud architecture for centralized and squad-specific DevOps use cases.
+    - Execution of development and IT operations (DevOps).
+    - Azure, Gitlab CI, Terraform, Kubernetes, Helm
+  - designation: Fullstack Developer
+    start: April 2020
+    end: March 2025
     responsibilities:
     - Develop Spring Boot Services, that consume data from multiple services and propagate those to a central system
     - REST API Development (OpenApi 3.0)
