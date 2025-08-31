@@ -21,9 +21,9 @@ customMenus:
   showOnFooter: true
 
 # Specify OpenGraph Headers
-#openGraph:
-#  title: Freelance Senior Java Developer — Marc Nützel
-#  type: website
-#  description: Spring Boot, microservices, Kubernetes, AWS. Remote and NRW on‑site.
-#  image: images/author/marc.png
-#  url: https://www.marc-nuetzel.de
+openGraph:
+  title: Freelance Senior Java Developer — Marc Nützel
+  type: website
+  description: Spring Boot, microservices, Kubernetes, AWS. Remote and NRW on‑site.
+  image: images/author/marc.png
+  url: https://www.marc-nuetzel.de
