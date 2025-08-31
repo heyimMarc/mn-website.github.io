@@ -20,8 +20,18 @@ experiences:
     # company overview
     overview: ista Deutschland GmbH is one of the leading energy service providers for more energy efficiency in buildings, in apartment buildings and commercial properties.
   positions:
+  - designation: Backend Developer
+    start: May 2025
+    responsibilities:
+    - Greenfield Project to maintain property data
+    - REST API Development (OpenApi 3.0)
+    - Write tests based on JUnit and Mockito.
+    - Dockerize the applications
+    - Java, Spring Boot, Docker, Kubernetes, Hibernate, Flyway, Gitlab CI, JUnit, Mockito, Azure, Maven, PostgreSQL
+
   - designation: DevOps Engineer
     start: March 2025
+    end: May 2025
     responsibilities:
     - Conception, development, and maintenance of the infrastructure for Continuous Integration and Continuous Delivery, including (but not limited to) pipeline templates, DevOps tooling, and Infrastructure-as-Code templates – from the initial idea to a running pipeline.
     - Active contribution to the further development of development, test, and production environments.
