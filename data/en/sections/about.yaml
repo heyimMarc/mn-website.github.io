@@ -8,7 +8,7 @@ section:
   template: sections/about.html
 
 # your designation
-designation: Software Engineer
+designation: Freelance Senior Java Engineer
 # your company information
 company:
   name: Marc Nützel IT-Solutions
@@ -19,7 +19,7 @@ company:
 # resume: "files/resume.pdf"
 
 # a summary about you
-summary: 'My name is Marc Nützel, and I am a software engineer from Mülheim, Germany, who is specialized in building web applications in Java environments. Writing code is my hobby and my passion, I love most of the approaches of Robert C. Martin’s book ‘Clean Code’. Test-driven development is the way I prefer to build applications. I have over 14 years of industry experience in IT and more than 9 years specialized in Java. Next coding in my spare time, I love fishing and enjoy traveling all over the world.'
+summary: 'I architect and deliver production-grade Java platforms with Spring Boot and Kubernetes. I help teams ship microservices faster with clean, testable code, CI/CD automation, and cloud-native reliability (AWS/AZURE). Since 2010, I’ve led and scaled backendsystems in fintech, e‑commerce, and enterprise. Available for short‑ and long‑term projects, remote or NRW on‑site. Let’s make your roadmap real.'
 
 # your social links
 # give as many as you want. use font-awesome for the icons.
