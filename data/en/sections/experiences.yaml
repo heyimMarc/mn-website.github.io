@@ -27,6 +27,10 @@ experiences:
     - REST API Development (OpenApi 3.0)
     - Write tests based on JUnit and Mockito.
     - Dockerize the applications
+    - Hexagonal Architecture
+    - Event Driven Architecture
+    - Event Sourcing
+    - CQRS
     - Java, Spring Boot, Docker, Kubernetes, Hibernate, Flyway, Gitlab CI, JUnit, Mockito, Azure, Maven, PostgreSQL
 
   - designation: DevOps Engineer
@@ -170,7 +174,7 @@ experiences:
     # darkLogo: /images/sections/experiences/company3.jpg
     overview: Part of the executive of the district NRW.
   positions:
-    - designation: Lead Developer (perm position)
+    - designation: IT-Specialist
       start: Jan 2008
       end: March 2008
       responsibilities:
