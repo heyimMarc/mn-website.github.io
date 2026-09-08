@@ -12,34 +12,50 @@ section:
 # Give a summary of you each skill in the summary section.
 
 skills:
-  - name: Spring Boot
-    logo: /images/sections/skills/spring.png
-    summary: "Using as main framework. Capable of writing scalable, testable, and maintainable software in Java with Spring Boot."
-
   - name: Java
     logo: /images/sections/skills/java.png
-    summary: "Using as main language for professional development. Capable of writing scalable, testable, and maintainable software in Java."
+    summary: "My main language for professional development since 2008, currently on Java 25. Capable of writing scalable, testable, and maintainable software in Java."
+
+  - name: Spring Boot
+    logo: /images/sections/skills/spring.png
+    summary: "My main framework, currently Spring Boot 4. Capable of writing scalable, testable, and maintainable services in Java and Kotlin."
+
+  - name: Event Sourcing & CQRS
+    icon: "fas fa-stream"
+    summary: "Running in production: a PostgreSQL event store, state rebuilt by replaying domain events, and read models kept separate from the write side."
+
+  - name: Domain-Driven Design
+    icon: "fas fa-cubes"
+    summary: "Hexagonal architecture, aggregates, and an Anti-Corruption Layer against legacy systems, enforced at build time with jMolecules and ArchUnit instead of relying on review."
 
   - name: Kubernetes
     logo: /images/sections/skills/kubernetes.png
-    summary: "Capable of deploying, managing applications on Kubernetes."
-
-  - name: Cloud Computing
-    logo: /images/sections/skills/cloud.png
-    summary: "Worked with most of the major clouds such AWS and Azure."
+    summary: "Capable of deploying and managing applications on Kubernetes, including Helm charts and GitOps delivery with ArgoCD."
 
   - name: Docker
     logo: /images/sections/skills/docker.svg
-    summary: "Wrote most of the programs as dockerized container. Experienced with multi-stage, multi-arch build process."
+    summary: "Ship almost everything as a container. Experienced with multi-stage and multi-architecture builds, and with slim, non-root production images."
 
-  - name: Micronaut
-    logo: /images/sections/skills/micronaut.png
-    summary: "Gathered first deep experience with Micronaut. Created SaaS in a microservice architecture based on micronaut. I even felt in love with the supported GraalVM."
+  - name: Kotlin
+    logo: /images/sections/skills/kotlin.png
+    summary: "Primary language in my current project: a production event-sourced platform on Spring Boot 4 and Java 25. Comfortable in polyglot JVM codebases where Kotlin and Java live side by side."
+
+  - name: Cloud Computing
+    logo: /images/sections/skills/cloud.png
+    summary: "Worked with the major clouds, with Azure as my focus since 2020 and several years of AWS before that."
 
   - name: Hibernate
     logo: /images/sections/skills/hibernate.png
-    summary: "Capable of writing efficient entity relationship models with hibernate."
+    summary: "Capable of designing efficient entity relationship models with Hibernate and JPA, and of fixing the query problems they tend to hide."
 
   - name: Git
     logo: /images/sections/skills/git.png
-    summary: "Experienced with git based development. Mostly, use Gitlab. So there is even a lot of experience in writing CI / CD Piplines."
+    summary: "Experienced with git based development, mostly on GitLab, including a lot of experience in writing CI / CD pipelines."
+
+  - name: AI-Assisted Development
+    icon: "fas fa-robot"
+    summary: "Daily driver in my current project: Claude Code with custom agent skills, subagents and automated review loops for code review, test generation and large-scale refactorings, with humans still reviewing every merge."
+
+  - name: Micronaut
+    logo: /images/sections/skills/micronaut.png
+    summary: "Built a SaaS in a microservice architecture on Micronaut, including GraalVM native images."

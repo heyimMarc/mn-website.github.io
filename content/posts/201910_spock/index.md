@@ -7,10 +7,10 @@ menu:
     name: Spock Testing-Framework
     identifier: spock
     weight: 10
-tags: []
-categories: []
+tags: ["java", "testing", "spock", "junit", "groovy"]
+categories: ["testing"]
 ---
-First of all [Spock](http://spockframework.org) and [JUnit](https://junit.org) are both great test frameworks, usually JUnit is one of my standard tools that I unpack in a project. In my last project, a colleague had thrown Spock into the room and we decided to try it out in one of our microservices and roll it out completely if we liked it, which we finally did. You can find all examples [here](https://github.com/heyimMarc/playground/tree/master/spock-junit-comparison) on Github, of course.
+First of all, [Spock](http://spockframework.org) and [JUnit](https://junit.org) are both great test frameworks, and JUnit is usually one of the standard tools I reach for in a project. In my last project a colleague suggested Spock, and we decided to try it out in one of our microservices and roll it out everywhere if we liked it, which we finally did. You can find all examples [here](https://github.com/heyimMarc/playground/tree/master/spock-junit-comparison) on GitHub, of course.
 
 We have looked at the following criteria:
 * Code documentation
@@ -21,9 +21,9 @@ We have looked at the following criteria:
 Code Documentation
 ---
 
-In each piece of developed code it is good practice to have self-explanatory methods, variable names and class names, objects, etc. The same applies to test methods/classes.
+In every piece of code it is good practice to have self-explanatory method names, variable names, class names and objects. The same applies to test methods and test classes.
 
-In Spock the code snippet documents our code by default. We have the @Title declaration for the entire test class. Each test method, is divided into /when/then/{where} blocks and these blocks can all be supplemented with strings for explanation. We have also written the name of the test method in simple and understandable English.
+In Spock the code documents itself by default. There is the @Title declaration for the entire test class, and each test method is divided into given/when/then/(where) blocks, all of which can be supplemented with strings for explanation. We also wrote the names of the test methods in simple, understandable English.
 
 ![spock title example](/images/sections/posts/spock2019/spock-title.jpg)
 
@@ -57,10 +57,10 @@ We see here that JUnit tells us that in the test helloWorldReturnsHelloFailing()
 
 ![spock output example](/images/sections/posts/spock2019/spock_result.jpg)
 
-Spock on the other hand is a bit more noisy, so we see that "Hello world" was returned, "world" was passed as parameter and "buggy" was expected and therefore the result is false.
-So I save myself debugging in most cases and therefore a lot of time. This noisyness of Spock was a decisive factor that convinced me.
+Spock, on the other hand, is a bit more noisy: we see that "Hello world" was returned, that "world" was passed as a parameter and that "buggy" was expected, and therefore the result is false.
+That saves me the debugger in most cases, and with it a lot of time. This noisiness of Spock was the decisive factor that convinced me.
 
 Speed
 ---
 
-When it comes to speed, Spock loses mercilessly, while JUnit runs the example tests in 87ms, Spock needs with 718ms almost ten times as long as JUnit. I the reason for this is the featureset that Spock provides out of the box like mocking, stubbing, spying etc. Things that can be added to Junit with additional libs.
+When it comes to speed, Spock loses mercilessly: JUnit runs the example tests in 87 ms, while Spock takes 718 ms: almost ten times as long. I assume the reason is the feature set that Spock provides out of the box, such as mocking, stubbing and spying: things you have to add to JUnit with additional libraries.

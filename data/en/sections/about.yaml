@@ -8,18 +8,18 @@ section:
   template: sections/about.html
 
 # your designation
-designation: Freelance Senior Java Engineer
+designation: Senior Java Architect · Legacy Modernization & Cloud
 # your company information
 company:
   name: Marc Nützel IT-Solutions
   url: "https://www.marc-nuetzel.de"
 
 # your resume. this file path should be relative to you "static" directory
-# Dreprecated. Use resourceLinks instead.
+# Deprecated. Use resourceLinks instead.
 # resume: "files/resume.pdf"
 
 # a summary about you
-summary: 'I architect and deliver production-grade Java platforms with Spring Boot and Kubernetes. I help teams ship microservices faster with clean, testable code, CI/CD automation, and cloud-native reliability (AWS/AZURE). Since 2010, I’ve led and scaled backendsystems in fintech, e‑commerce, and enterprise. Available for short‑ and long‑term projects, remote or NRW on‑site. Let’s make your roadmap real.'
+summary: 'I architect and deliver production-grade Java platforms with Spring Boot and Kubernetes, plus solid working Kotlin from a current project. I help teams ship microservices faster with clean, testable code, event-driven architecture, CI/CD automation, and cloud-native reliability (Azure/AWS). Since 2010, I’ve led and scaled backend systems in logistics, e‑commerce, energy, and fintech. Current availability: open for new full-time projects from January 2027, remote or NRW on‑site. Let’s make your roadmap real.'
 
 # your social links
 # give as many as you want. use font-awesome for the icons.
@@ -28,7 +28,7 @@ socialLinks:
   icon: "fas fa-envelope"
   url: "me@marc-nuetzel.de"
 
-- name: Github
+- name: GitHub
   icon: "fab fa-github"
   url: "https://github.com/heyimMarc/"
 
@@ -62,6 +62,11 @@ badges:
   color: yellow
 
 - type: soft-skill-indicator
+  name: Kotlin
+  percentage: 90
+  color: "#7F52FF"
+
+- type: soft-skill-indicator
   name: Microservices
   percentage: 95
   color: orange
@@ -72,9 +77,9 @@ badges:
   color: green
 
 - type: soft-skill-indicator
-  name: Angular
-  percentage: 70
-  color: orange
+  name: Event Sourcing / CQRS
+  percentage: 90
+  color: sky
 
 - type: soft-skill-indicator
   name: Docker

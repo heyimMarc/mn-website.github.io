@@ -21,6 +21,27 @@ buttons:
 
 # your projects
 projects:
+- name: Event Sourcing on PostgreSQL
+  role: Author
+  timeline: "2026 - Present"
+  repo: https://github.com/heyimMarc/event-sourcing-postgres-example
+  summary: Runnable event store on plain PostgreSQL (optimistic concurrency, snapshots, Testcontainers suite). Companion to the blog series.
+  tags: ["professional", "event-sourcing", "postgresql"]
+
+- name: DDD enforced at build time
+  role: Author
+  timeline: "2026 - Present"
+  repo: https://github.com/heyimMarc/ddd-jmolecules-archunit-demo
+  summary: jMolecules + ArchUnit rules that fail the pipeline instead of the review, with a deliberately failing example.
+  tags: ["professional", "ddd", "architecture"]
+
+- name: Testcontainers patterns
+  role: Author
+  timeline: "2026 - Present"
+  repo: https://github.com/heyimMarc/testcontainers-quickstart
+  summary: The four Testcontainers patterns that pay off in real pipelines.
+  tags: ["professional", "testing", "testcontainers"]
+
 - name: Kubernetes
   logo: /images/sections/projects/kubernetes.png
   role: Contributor

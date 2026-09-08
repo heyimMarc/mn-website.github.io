@@ -7,7 +7,7 @@ You can modify or distribute the theme without requiring any permission from the
 However, the theme author does not provide any warranty or takes any liability for any issue with the theme."
 
 # Meta description for your site.  This will help the search engines to find your site.
-description: Freelance Senior Java Developer specializing in Spring Boot, microservices, Kubernetes, and AWS. Based in Mülheim (NRW). Available for remote and on‑site projects.
+description: Senior Java Architect specialising in legacy modernization and cloud migration, with Spring Boot, event-driven microservices, Kubernetes, Azure and AWS (plus solid working Kotlin from a current project). Based in Mülheim (NRW). Available for new projects from January 2027, remote or NRW on‑site.
 
 # specify the list of custom menus that you want to show in the top navbar.
 # they will be separated by a divider from the main menus.
@@ -22,8 +22,8 @@ customMenus:
 
 # Specify OpenGraph Headers
 openGraph:
-  title: Freelance Senior Java Developer — Marc Nützel
+  title: Senior Java Architect · Legacy Modernization & Cloud | Marc Nützel
   type: website
-  description: Spring Boot, microservices, Kubernetes, AWS. Remote and NRW on‑site.
+  description: Java, Spring Boot, event sourcing, Kubernetes on Azure and AWS, plus Kotlin. Remote and NRW on‑site.
   image: images/author/marc.png
   url: https://www.marc-nuetzel.de

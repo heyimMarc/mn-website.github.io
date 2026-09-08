@@ -10,7 +10,7 @@ menu:
 tags: []
 categories: []
 ---
-For those who, like me, sometimes have to access the Internet via a proxy, the use of Nodes Package Manager NPM can be a real struggle. At first I thought that the proxy can be configured as usual in the Linux world via the environment variables HTTP_PROXY and HTTPS_PROXY. Unfortunately I thought wrong...
+For those who, like me, sometimes have to access the internet via a proxy, using Node's package manager, npm, can be a real struggle. At first I thought that the proxy can be configured as usual in the Linux world via the environment variables HTTP_PROXY and HTTPS_PROXY. Unfortunately I thought wrong...
 
 This is how NPM needs to be configured:
 

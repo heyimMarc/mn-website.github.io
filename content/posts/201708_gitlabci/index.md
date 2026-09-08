@@ -4,30 +4,30 @@ date: 2017-08-29T13:23:10+01:00
 description: Gitlab CI Debugging
 menu:
   sidebar:
-    name: Generating data with Mockneat
+    name: Gitlab CI Debugging
     identifier: Gitlab CI Debugging
     weight: 10
-tags: []
-categories: []
+tags: ["gitlab", "ci-cd", "docker"]
+categories: ["devops"]
 ---
 
-I would like to show you how to debug a CI process locally using Gitlab CI.
-I often see a firework of failed Gitlab CI tests when creating new projects. Even it's very easy to test the CI process locally before pushing it into the repo.
-First of all it requires docker to be installed, you can find it [here.](https://www.docker.com/get-started)
-You also need a GIT project and the corresponding [.gitlab-ci.yml](https://docs.gitlab.com/ce/ci/quick_start/README.html) which defines your CI process.
+I would like to show you how to debug a CI process locally using GitLab CI.
+I often see a barrage of failed GitLab CI jobs when new projects are set up, even though it is very easy to test the CI process locally before pushing it to the repository.
+First of all, this requires Docker to be installed, which you can find [here.](https://www.docker.com/get-started)
+You also need a Git project and the corresponding [.gitlab-ci.yml](https://docs.gitlab.com/ce/ci/quick_start/README.html) that defines your CI process.
 
-GitlabCI Dashboard
+GitLab CI Dashboard
 --
 The dashboard is only a web interface, it does not execute the CI processes, but delegates them to a pool of runners. When the dashboard gets the instruction to start a pipeline, it adds this pipeline to a queue. The queue is then processed by the runners.
 
-Gitlab Runner
+GitLab Runner
 --
 
-The runners can be started on any instance. Typically, the runners register themselves with the specified Gitlab instance.
-Runners can be enhanced with names and tags, have their instructions returned from the Gitlab Dashboard, and report the result.
-GitlabCI runners can also work without a connection to the Gitlab CI instance. In offline mode, functionality is limited, but it is possible to read and execute the local .gitlab-ci.yml file. Offline Runners must be run from the command line.
+The runners can be started on any instance. Typically, the runners register themselves with the specified GitLab instance.
+Runners can be enhanced with names and tags, have their instructions returned from the GitLab dashboard, and report the result.
+GitLab CI runners can also work without a connection to the GitLab CI instance. In offline mode, functionality is limited, but it is possible to read and execute the local .gitlab-ci.yml file. Offline runners must be run from the command line.
 
-Installation of a Gitlab Runner
+Installation of a GitLab Runner
 --
 
 In my case I'm doing the installation for Mac OS, but here I link the [official documentation](https://docs.gitlab.com/runner/install/osx.html#installation) which also supports other operating systems.
@@ -55,7 +55,7 @@ should return the following:
 Start a Job
 --
 
-As am example I'll use this .gitlab-ci.yaml
+As an example I'll use this .gitlab-ci.yaml
 
 ```yaml
 image: node:latest
@@ -75,4 +75,4 @@ $ ls .gitlab-ci.yml
 $ gitlab-ci-multi-runner exec docker task1
 ```
 
-The runner should now run the task. Of course Gitlab cache and artifacts are not working on a local gitlab- runner, but at least the possibility to test a ci file quick localy without annoying team members is quite good.
+The runner should now run the task. Of course, GitLab cache and artifacts do not work on a local gitlab-runner, but being able to test a CI file quickly and locally, without annoying your team members, is quite good.

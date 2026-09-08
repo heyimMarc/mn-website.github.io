@@ -7,19 +7,19 @@ menu:
     name: Licecap for better bug tickets
     identifier: licecap
     weight: 10
-tags: []
-categories: []
+tags: ["tooling", "jira", "productivity"]
+categories: ["tooling"]
 ---
 
-How to record screen videos with Licecap and create better bug tickets.
-Licecap is a tool to create screen captures which are then converted into an animated gif's and can be easily posted to a ticket tool such as Jira.
+How to record screen videos with LICEcap and create better bug tickets.
+LICEcap is a tool for recording screen captures, which are then converted into animated GIFs and can easily be posted to a ticket tool such as Jira.
 
-Licecap is very simple because it has only 2 buttons. One to start the recording and one to stop it.
+LICEcap is very simple because it has only two buttons. One to start the recording and one to stop it.
 
-I have seen a similar tool in a Sprint Review by a colleague today and will use Licecap to create bug tickets, because a video is often much more meaningful than text that stands alone. The nice thing about animated gif's is that you don't have to use an embedded video player, it works natively. In Jira it is enough to attach the gif to the ticket, it will be played directly when the ticket is opened.
+A colleague showed me a similar tool in a sprint review today, and I will use LICEcap for bug tickets from now on, because a video is often much more meaningful than text on its own. The nice thing about animated GIFs is that you don't need an embedded video player, they work natively. In Jira it is enough to attach the GIF to the ticket, and it plays directly when the ticket is opened.
 
-Licecap can be found [here](https://www.cockos.com/licecap/):
-or if you are a Mac user, you can easily install Licecap via Brew.
+LICEcap can be found [here](https://www.cockos.com/licecap/),
+or if you are a Mac user, you can install it via Homebrew:
 ```bash
-$ brew cask install licecap
+$ brew install --cask licecap
 ```

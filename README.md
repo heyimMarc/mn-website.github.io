@@ -6,3 +6,12 @@ An example hugo static site with Toha theme.
 
 Attributions:
 - <a href='https://www.freepik.com/vectors/business'>Business vector created by studiogstock - www.freepik.com</a>
+
+## SEO
+
+- Canonical URLs, robots meta, hreflang, and JSON‑LD are injected via `layouts/partials/extend_head.html` without overriding the theme.
+- Default meta description is read from front matter `description` or falls back to `params.description` in `hugo.yaml`.
+- Open Graph/Twitter image is taken from `images`, `featuredImage`, or site logo.
+- `static/robots.txt` is provided and `sitemap.xml` is configured in `hugo.yaml`.
+
+Local development commands remain unchanged. After editing SEO, rebuild with `hugo --gc --minify` to verify tags.

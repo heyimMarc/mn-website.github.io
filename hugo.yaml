@@ -50,8 +50,19 @@ outputs:
 # Enable global emoji support
 enableEmoji: true
 
+# Generate robots.txt automatically (overridable by static/robots.txt)
+enableRobotsTXT: true
+
+# Sitemap configuration
+sitemap:
+  filename: sitemap.xml
+  changefreq: weekly
+  priority: 0.5
+
 # Site parameters
 params:
+  # Default site description (used as fallback for meta description)
+  description: "Freelance Senior Java & Kotlin Developer in NRW, focused on Spring Boot, event-driven microservices, Kubernetes, Azure and AWS."
   # Background image of the landing page
   background: /images/site/background.jpg
 
@@ -61,6 +72,14 @@ params:
     #main: /images/site/marc.png
     #inverted: /images/site/marc.png
     #favicon: /images/site/marc.png
+
+  # Basic author info for structured data
+  author:
+    name: "Marc Nützel"
+
+  # Optional social handles
+  social:
+    # twitter: your_handle
 
   # GitHub repo of your site
   gitRepo: https://github.com/heyimMarc/mn-website.github.io

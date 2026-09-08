@@ -1,0 +1,32 @@
+{{/*
+  Override of toha/layouts/partials/cards/skill.html.
+  Upstream renders the skill name *inside* the Font Awesome <span>, so the title
+  is drawn in the icon font and becomes unreadable. Here the icon span is empty
+  and the name sits next to it.
+*/}}
+<div class="col-xs-12 col-sm-6 col-lg-4 pt-2">
+  <a class="text-decoration-none" {{ if .url }}href="{{ .url }}" title="{{ .name }}" target="_blank" rel="noopener"{{ end }}>
+    <div class="card">
+      <div class="card-head d-flex">
+        {{ if .logo }}
+          {{ $logoImage := resources.Get .logo }}
+          {{/*  svg don't support "Fit" operation   */}}
+          {{ if ne $logoImage.MediaType.SubType "svg" }}
+            {{ $logoImage = $logoImage.Fit "24x24" }}
+          {{ end }}
+
+          <img class="card-img-xs" src="{{ $logoImage.RelPermalink }}" alt="{{ .name }}" />
+          <h5 class="card-title">{{ .name }}</h5>
+        {{ else if .icon }}
+          <span class="{{ .icon }} card-img-xs text-center" aria-hidden="true"></span>
+          <h5 class="card-title">{{ .name }}</h5>
+        {{ else }}
+          <h5 class="card-title">{{ .name }}</h5>
+        {{ end }}
+      </div>
+      <div class="card-body">
+        <p class="card-text">{{ .summary | markdownify }}</p>
+      </div>
+    </div>
+  </a>
+</div>

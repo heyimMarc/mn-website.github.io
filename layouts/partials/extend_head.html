@@ -1,0 +1,83 @@
+{{/* Additional SEO tags injected at end of <head> without overriding theme. */}}
+{{ $title := .Title }}
+{{ $siteTitle := site.Title }}
+{{ $isHome := .IsHome }}
+{{ $description := cond (isset .Params "description") (.Params.description) (.Summary | plainify | default site.Params.description) }}
+{{ $description = $description | plainify | truncate 160 }}
+{{ $url := .Permalink }}
+
+{{/* Choose a representative image (Open Graph/Twitter). */}}
+{{ $image := "" }}
+{{ with .Params.images }}
+  {{ $image = (index . 0) }}
+{{ else }}
+  {{ with .Params.featuredImage }}
+    {{ $image = . }}
+  {{ else }}
+    {{ with site.Params.logo.favicon }}
+      {{ $image = . }}
+    {{ else }}
+      {{ with site.Params.logo.main }}
+        {{ $image = . }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+{{/* Canonical URL */}}
+<link rel="canonical" href="{{ $url }}">
+
+{{/* Robots meta: noindex drafts or explicit noindex */}}
+{{ $robots := "index,follow" }}
+{{ if or .Draft (.Params.noindex) }}
+  {{ $robots = "noindex,nofollow" }}
+{{ end }}
+<meta name="robots" content="{{ $robots }}">
+
+{{/* Hreflang for multilingual sites */}}
+{{ if gt (len site.Languages) 1 }}
+  {{ range .AllTranslations }}
+    <link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ .Permalink }}" />
+  {{ end }}
+  <link rel="alternate" hreflang="x-default" href="{{ .Permalink }}" />
+{{ end }}
+
+{{/* Twitter card improvements */}}
+{{ if $image }}
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="{{ $image }}">
+{{ else }}
+  <meta name="twitter:card" content="summary">
+{{ end }}
+{{ with site.Params.social.twitter }}
+  <meta name="twitter:site" content="@{{ . }}">
+{{ end }}
+
+{{/* Minimal JSON-LD: WebSite on home, BlogPosting on posts */}}
+{{ if $isHome }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": {{ $siteTitle | jsonify }},
+  "url": {{ site.BaseURL | jsonify }}
+}
+</script>
+{{ else if .IsPage }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": {{ $title | jsonify }},
+  "description": {{ $description | jsonify }},
+  "datePublished": {{ .PublishDate | time.Format "2006-01-02T15:04:05Z07:00" | jsonify }},
+  "dateModified": {{ .Lastmod | time.Format "2006-01-02T15:04:05Z07:00" | jsonify }},
+  "mainEntityOfPage": {{ $url | jsonify }},
+  "url": {{ $url | jsonify }},
+  {{ with $image }}"image": {{ . | jsonify }},{{ end }}
+  {{ with site.Params.author.name }}"author": {"@type": "Person", "name": {{ . | jsonify }}},{{ end }}
+  "publisher": {"@type": "Organization", "name": {{ $siteTitle | jsonify }} }
+}
+</script>
+{{ end }}
+
