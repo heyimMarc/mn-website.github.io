@@ -1,66 +1,50 @@
-{{/* Additional SEO tags injected at end of <head> without overriding theme. */}}
-{{ $title := .Title }}
-{{ $siteTitle := site.Title }}
-{{ $isHome := .IsHome }}
-{{ $description := cond (isset .Params "description") (.Params.description) (.Summary | plainify | default site.Params.description) }}
+{{/*
+  Site-owned head tags. Rendered from the baseof override, because Toha v4.5.1
+  has no extend_head hook of its own: before that override existed this file
+  was never called and nothing in it reached a page.
+
+  Open Graph lives in the opengraph.html override, not here. No Twitter cards:
+  Marc does not use X, and every other scraper reads Open Graph.
+*/}}
+
+{{ $description := "" }}
+{{ with .Params.description }}{{ $description = . }}{{ else }}
+  {{ with .Summary }}{{ $description = . | plainify }}{{ else }}{{ $description = site.Params.description }}{{ end }}
+{{ end }}
 {{ $description = $description | plainify | truncate 160 }}
-{{ $url := .Permalink }}
 
-{{/* Choose a representative image (Open Graph/Twitter). */}}
-{{ $image := "" }}
-{{ with .Params.images }}
-  {{ $image = (index . 0) }}
-{{ else }}
-  {{ with .Params.featuredImage }}
-    {{ $image = . }}
-  {{ else }}
-    {{ with site.Params.logo.favicon }}
-      {{ $image = . }}
-    {{ else }}
-      {{ with site.Params.logo.main }}
-        {{ $image = . }}
-      {{ end }}
-    {{ end }}
-  {{ end }}
-{{ end }}
+<link rel="canonical" href="{{ .Permalink }}">
 
-{{/* Canonical URL */}}
-<link rel="canonical" href="{{ $url }}">
-
-{{/* Robots meta: noindex drafts or explicit noindex */}}
 {{ $robots := "index,follow" }}
-{{ if or .Draft (.Params.noindex) }}
-  {{ $robots = "noindex,nofollow" }}
-{{ end }}
+{{ if or .Draft .Params.noindex }}{{ $robots = "noindex,nofollow" }}{{ end }}
 <meta name="robots" content="{{ $robots }}">
 
-{{/* Hreflang for multilingual sites */}}
-{{ if gt (len site.Languages) 1 }}
-  {{ range .AllTranslations }}
-    <link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ .Permalink }}" />
-  {{ end }}
-  <link rel="alternate" hreflang="x-default" href="{{ .Permalink }}" />
-{{ end }}
-
-{{/* Twitter card improvements */}}
-{{ if $image }}
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="{{ $image }}">
-{{ else }}
-  <meta name="twitter:card" content="summary">
-{{ end }}
-{{ with site.Params.social.twitter }}
-  <meta name="twitter:site" content="@{{ . }}">
-{{ end }}
-
-{{/* Minimal JSON-LD: WebSite on home, BlogPosting on posts */}}
-{{ if $isHome }}
+{{ if .IsHome }}
+{{/* Person rather than WebSite: for a freelancer the entity worth describing
+     is the person, and this is what feeds a knowledge panel. */}}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": {{ $siteTitle | jsonify }},
-  "url": {{ site.BaseURL | jsonify }}
+  "@type": "Person",
+  "name": "Marc Nützel",
+  "url": {{ site.BaseURL | jsonify }},
+  "jobTitle": "Senior Java Architect",
+  "description": {{ $description | jsonify }},
+  "address": {
+    "@type": "PostalAddress",
+    "addressRegion": "Nordrhein-Westfalen",
+    "addressCountry": "DE"
+  },
+  "knowsAbout": [
+    "Java", "Kotlin", "Spring Boot", "Kubernetes", "Microservices",
+    "Event Sourcing", "CQRS", "Domain-Driven Design", "PostgreSQL",
+    "Microsoft Azure", "Amazon Web Services", "Legacy Modernization"
+  ],
+  "sameAs": [
+    "https://www.linkedin.com/in/marcnuetzel",
+    "https://github.com/heyimMarc",
+    "https://www.xing.com/profile/Marc_Nuetzel"
+  ]
 }
 </script>
 {{ else if .IsPage }}
@@ -68,16 +52,14 @@
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": {{ $title | jsonify }},
+  "headline": {{ .Title | jsonify }},
   "description": {{ $description | jsonify }},
-  "datePublished": {{ .PublishDate | time.Format "2006-01-02T15:04:05Z07:00" | jsonify }},
-  "dateModified": {{ .Lastmod | time.Format "2006-01-02T15:04:05Z07:00" | jsonify }},
-  "mainEntityOfPage": {{ $url | jsonify }},
-  "url": {{ $url | jsonify }},
-  {{ with $image }}"image": {{ . | jsonify }},{{ end }}
-  {{ with site.Params.author.name }}"author": {"@type": "Person", "name": {{ . | jsonify }}},{{ end }}
-  "publisher": {"@type": "Organization", "name": {{ $siteTitle | jsonify }} }
+  "datePublished": {{ .PublishDate.Format "2006-01-02T15:04:05Z07:00" | jsonify }},
+  "dateModified": {{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" | jsonify }},
+  "mainEntityOfPage": {{ .Permalink | jsonify }},
+  "url": {{ .Permalink | jsonify }},
+  "author": {"@type": "Person", "name": "Marc Nützel", "url": {{ site.BaseURL | jsonify }}},
+  "publisher": {"@type": "Person", "name": "Marc Nützel"}
 }
 </script>
 {{ end }}
-

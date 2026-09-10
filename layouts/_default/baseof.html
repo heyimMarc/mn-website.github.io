@@ -1,0 +1,75 @@
+{{/*
+  Override of the Toha baseof. Two reasons, both of which the theme does not
+  offer a hook for:
+
+  1. Toha v4.5.1 has no extend_head extension point, so layouts/partials/extend_head.html
+     was never rendered. Canonical links and JSON-LD lived in that file and
+     never reached a single page.
+  2. The theme renders <title>{{ .Page.Title }}</title>, which on the home page
+     is just the site title. "Marc Nützel" tells a search engine nothing about
+     what the site is for.
+
+  The internal twitter_cards template is dropped here because extend_head.html
+  emits the same tags and picks summary_large_image when an image exists.
+  Keeping both would ship duplicates.
+
+  Keep this file in sync when upgrading Toha.
+*/}}
+<!DOCTYPE html>
+<html lang="{{ .Site.Language.Lang }}">
+  <head>
+    <title>{{ if .IsHome }}{{ site.Title }}{{ with site.Params.titleSuffix }} | {{ . }}{{ end }}{{ else }}{{ .Page.Title }} | {{ site.Title }}{{ end }}</title>
+    <!------ ADD COMMON HEADERS -------->
+    {{- partial "header.html" . -}}
+    {{- partial "opengraph.html" . -}}
+    <!------ ADD PAGE SPECIFIC HEADERS ------->
+    {{ block "header" . }} {{ end }}
+
+    <!------ SITE-OWNED SEO TAGS (canonical, robots, twitter, JSON-LD) ------->
+    {{- partial "extend_head.html" . -}}
+
+    <!--================= add analytics if enabled =========================-->
+    {{- partial "analytics.html" . -}}
+    <script>
+      theme = localStorage.getItem('darkmode:color-scheme') || 'system';
+      if (theme == 'system') {
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          theme = 'dark';
+        } else {
+          theme = 'light';
+        }
+      }
+      document.documentElement.setAttribute('data-theme', theme);
+    </script>
+  </head>
+
+  <body class="type-{{ .Page.Type }} kind-{{ .Page.Kind }}" data-bs-spy="scroll" data-bs-target="#TableOfContents" data-bs-offset="80">
+    <div class="container-fluid bg-secondary wrapper">
+      <!----- ADD NAVBAR --------------->
+      {{ block "navbar" . }} {{ end }}
+
+      <!----- ADD SIDEBAR --------------->
+      {{ block "sidebar" . }} {{ end }}
+
+      <!----- ADD PAGE CONTENT --------->
+      {{ block "content" . }} {{ end }}
+
+      <!----- ADD TABLE OF CONTENTS ----------->
+      {{ block "toc" . }} {{ end }}
+    </div>
+
+    <!------- ADD FOOTER ------------>
+    {{ $footerTemplate:= site.Params.footer.template | default "footer.html" }}
+    {{- partial $footerTemplate . -}}
+
+    <!------- ADD COMMON SCRIPTS ------->
+    {{ partial "scripts.html" . }}
+
+    <!------- ADD PAGE SPECIFIC SCRIPTS ------>
+    {{ block "scripts" . }} {{ end }}
+
+    <!------ IF WANTED, ADD SUPPORT LINKS -------->
+    {{- partial "misc/support.html" . -}}
+
+  </body>
+</html>

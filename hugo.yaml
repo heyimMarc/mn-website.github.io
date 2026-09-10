@@ -70,6 +70,8 @@ sitemap:
 # Site parameters
 params:
   # Default site description (used as fallback for meta description)
+  # Appended to the site title in <title> on the home page only.
+  titleSuffix: "Senior Java Architect | Legacy Modernization & Cloud Migration"
   description: "Freelance Senior Java & Kotlin Developer in NRW, focused on Spring Boot, event-driven microservices, Kubernetes, Azure and AWS."
   # Background image of the landing page
   background: /images/site/background.jpg

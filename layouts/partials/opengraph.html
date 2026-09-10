@@ -1,0 +1,46 @@
+{{/*
+  Override of Toha's opengraph.html.
+
+  The theme version emits one site-wide set of tags for every page, so every
+  post shared anywhere showed the site title and site description rather than
+  its own. It also renders og:image through relURL, which yields a path like
+  /images/author/marc.png. Open Graph requires an absolute URL, and scrapers
+  that follow the spec show no preview image at all for a relative one.
+
+  This version is per page and absolute. The internal twitter_cards template
+  the theme called from here is dropped: Marc does not use X, and LinkedIn,
+  Slack and WhatsApp all read Open Graph.
+*/}}
+
+{{ $data := (index site.Data site.Language.Lang) }}
+
+{{ $title := cond .IsHome ($data.site.openGraph.title | default site.Title) (printf "%s | %s" .Title site.Title) }}
+{{ $type := cond .IsPage "article" "website" }}
+
+{{ $description := "" }}
+{{ with .Params.description }}{{ $description = . }}{{ else }}
+  {{ with .Summary }}{{ $description = . | plainify }}{{ else }}
+    {{ $description = ($data.site.openGraph.description | default $data.site.description | default site.Params.description) }}
+  {{ end }}
+{{ end }}
+{{ $description = $description | plainify | truncate 200 }}
+
+{{ $image := "" }}
+{{ with .Params.images }}{{ $image = index . 0 }}{{ else }}
+  {{ with .Params.featuredImage }}{{ $image = . }}{{ else }}
+    {{ $image = ($data.site.openGraph.image | default $data.author.image) }}
+  {{ end }}
+{{ end }}
+
+<!-- ============ open graph tags ========== -->
+<meta property="og:title" content="{{ $title }}"/>
+<meta property="og:type" content="{{ $type }}"/>
+<meta property="og:description" content="{{ $description }}"/>
+{{ with $image }}<meta property="og:image" content="{{ . | absURL }}">{{ end }}
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:site_name" content="{{ site.Title }}">
+{{ if .IsPage }}
+<meta property="article:published_time" content="{{ .PublishDate.Format "2006-01-02T15:04:05Z07:00" }}">
+{{ range .Params.tags }}<meta property="article:tag" content="{{ . }}">
+{{ end }}
+{{ end }}
