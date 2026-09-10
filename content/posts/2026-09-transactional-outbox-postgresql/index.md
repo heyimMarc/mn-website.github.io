@@ -40,6 +40,8 @@ COMMIT;
 
 Both writes land or neither does, guaranteed by the same transaction manager that already guarantees the business write. Delivery becomes a separate job that is allowed to fail and retry, because the message is durable the moment the business change is.
 
+![Transactional outbox on PostgreSQL: the service writes the shipments row and the outbox row in one transaction, a relay claims unpublished rows with FOR UPDATE SKIP LOCKED and publishes them to Kafka or Azure Service Bus](outbox-flow.svg)
+
 ## The table
 
 ```sql

@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 380" role="img" aria-labelledby="t d">
+  <title id="t">Anti-corruption layer between legacy systems and the domain</title>
+  <desc id="d">Work orders from a legacy field-service platform on Azure Service Bus and master data from SAP over OData and SOAP enter an anti-corruption layer that parses, validates and translates them. Only domain commands cross into the domain model, and ArchUnit enforces the boundary at build time.</desc>
+  <style>
+    .legacy { fill:#fef3c7; stroke:#d97706; stroke-width:1.5; rx:8; }
+    .stage  { fill:#f8fafc; stroke:#cbd5e1; stroke-width:1.5; rx:8; }
+    .domain { fill:#ecfdf5; stroke:#059669; stroke-width:1.5; rx:8; }
+    .acl    { fill:none; stroke:#0ea5e9; stroke-width:1.5; stroke-dasharray:6 4; rx:10; }
+    .wall   { stroke:#dc2626; stroke-width:2; stroke-dasharray:4 5; }
+    .lbl    { font:600 15px system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; fill:#1e293b; }
+    .sub    { font:400 12px system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; fill:#475569; }
+    .note   { font:400 13px system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; fill:#64748b; }
+    .tag    { font:600 11px system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; letter-spacing:.08em; }
+    .arrow  { stroke:#334155; stroke-width:1.6; fill:none; marker-end:url(#a); }
+  </style>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#334155"/>
+    </marker>
+  </defs>
+
+  <text class="tag" x="20" y="34" fill="#b45309">OUTSIDE, NOT OURS</text>
+  <rect class="legacy" x="18" y="52" width="182" height="54"/>
+  <text class="lbl" x="34" y="76">Field service</text>
+  <text class="sub" x="34" y="94">work orders on Service Bus</text>
+
+  <rect class="legacy" x="18" y="126" width="182" height="54"/>
+  <text class="lbl" x="34" y="150">SAP OData</text>
+  <text class="sub" x="34" y="168">master data reads</text>
+
+  <rect class="legacy" x="18" y="200" width="182" height="54"/>
+  <text class="lbl" x="34" y="224">SAP SOAP</text>
+  <text class="sub" x="34" y="242">a few transactional calls</text>
+
+  <rect class="acl" x="256" y="34" width="382" height="248"/>
+  <text class="tag" x="272" y="54" fill="#0284c7">ANTI-CORRUPTION LAYER</text>
+
+  <rect class="stage" x="284" y="72" width="326" height="52"/>
+  <text class="lbl" x="302" y="96">Parse</text>
+  <text class="sub" x="302" y="114">legacy payload into a raw carrier type</text>
+
+  <rect class="stage" x="284" y="140" width="326" height="52"/>
+  <text class="lbl" x="302" y="164">Validate</text>
+  <text class="sub" x="302" y="182">reject here, before anything is translated</text>
+
+  <rect class="stage" x="284" y="208" width="326" height="52"/>
+  <text class="lbl" x="302" y="232">Translate</text>
+  <text class="sub" x="302" y="250">legacy vocabulary into domain language</text>
+
+  <path class="arrow" d="M204 78 L238 78 L238 98 L280 98"/>
+  <path class="arrow" d="M204 152 L228 152 L228 98 L280 98"/>
+  <path class="arrow" d="M204 226 L218 226 L218 98 L280 98"/>
+
+  <path class="arrow" d="M448 128 L448 136"/>
+  <path class="arrow" d="M448 196 L448 204"/>
+
+  <line class="wall" x1="668" y1="34" x2="668" y2="282"/>
+  <text class="tag" x="612" y="306" fill="#dc2626">ARCHUNIT</text>
+
+  <path class="arrow" d="M614 234 L738 190"/>
+
+  <rect class="domain" x="742" y="140" width="142" height="54"/>
+  <text class="lbl" x="760" y="164">Domain model</text>
+  <text class="sub" x="760" y="182">commands only</text>
+
+  <text class="note" x="18" y="330">Nothing from the left half has a type the domain can name.</text>
+  <text class="note" x="18" y="352">A rejected work order never reaches translation, so a malformed payload cannot become a half-built command.</text>
+</svg>

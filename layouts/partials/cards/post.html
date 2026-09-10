@@ -1,0 +1,43 @@
+{{/*
+  Override of Toha's post card. Two changes:
+
+  1. The theme calls helpers/get-hero.html, which tries to resize but assigns
+     the result to a freshly scoped variable that is then thrown away, so the
+     card shipped the full 1200x630 original. With a cover on every post that
+     is roughly 1.5 MB of images on the post list. This resizes for real.
+  2. alt="Hero Image" on every card told a screen reader and a crawler nothing.
+     The post title is what the image actually says.
+*/}}
+{{ $hero := .Resources.GetMatch "hero.{png,jpg,jpeg}" }}
+{{ $src := "" }}
+{{ if $hero }}
+  {{ $src = ($hero.Resize "600x webp q80").RelPermalink }}
+{{ else }}
+  {{ $src = partial "helpers/get-hero.html" . }}
+{{ end }}
+<div class="post-card">
+  <div class="card">
+    <div class="card-head">
+      <a href="{{ .RelPermalink | relLangURL }}" class="post-card-link">
+        <img class="card-img-top" src="{{ $src }}" loading="lazy" alt="{{ .Title }}">
+      </a>
+    </div>
+    <div class="card-body">
+      <a href="{{ .RelPermalink | relLangURL }}" class="post-card-link">
+        <h5 class="card-title">{{ .Title }}</h5>
+        <p class="card-text post-summary">{{ .Summary }}</p>
+      </a>
+      {{ if and site.Params.features.tags.enable site.Params.features.tags.on_card }}
+        {{ partial "misc/tags.html" .Params.tags }}
+      {{ end }}
+    </div>
+    <div class="card-footer">
+      <span class="float-start">
+          {{ .Date | time.Format ":date_full" }}
+          {{ if site.Params.features.readingTime }} | {{.ReadingTime}} {{ i18n "minute" .ReadingTime }} {{ end }}</span>
+      <a
+      href="{{ .RelPermalink | relLangURL }}"
+      class="float-end btn btn-outline-info btn-sm">{{ i18n "read" }}</a>
+    </div>
+  </div>
+</div>

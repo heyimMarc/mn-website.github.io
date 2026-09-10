@@ -2,11 +2,9 @@
 title: "Impressum"
 date: 2010-06-26T15:53:40+02:00
 description: Impressum
-menu:
-  sidebar:
-    name: Impressum
-    identifier: impressum
-    weight: 0
+# the page lived under /posts/impressum/ until it moved out of the blog section
+aliases:
+  - /posts/impressum/
 tags: []
 categories: []
 ---
@@ -15,8 +13,8 @@ Angaben gemäß § 5 TMG
 ---
 
 Marc Nützel
-Bruchstr. 81
-45468 Mülheim an der Ruhr
+Dantestrasse 18
+42579 Heiligenhaus
 
 Kontakt
 ---

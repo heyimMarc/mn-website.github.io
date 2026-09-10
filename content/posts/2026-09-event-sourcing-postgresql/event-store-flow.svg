@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 400" role="img" aria-labelledby="t d">
+  <title id="t">Event sourcing on PostgreSQL</title>
+  <desc id="d">A command is decided against current state and appended to an append-only event store table in PostgreSQL. State is rebuilt by folding the stream, with a snapshot as the starting point for long streams, while projections build read models from the same rows.</desc>
+  <style>
+    .box   { fill:#f8fafc; stroke:#cbd5e1; stroke-width:1.5; rx:8; }
+    .store { fill:#f1f5f9; stroke:#94a3b8; stroke-width:1.5; rx:8; }
+    .row   { fill:#ffffff; stroke:#cbd5e1; stroke-width:1; rx:4; }
+    .read  { fill:#ecfdf5; stroke:#059669; stroke-width:1.5; rx:8; }
+    .snap  { fill:#fef3c7; stroke:#d97706; stroke-width:1.5; rx:8; }
+    .lbl   { font:600 15px system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; fill:#1e293b; }
+    .sub   { font:400 12px system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; fill:#475569; }
+    .mono  { font:400 12px ui-monospace,SFMono-Regular,Menlo,monospace; fill:#334155; }
+    .note  { font:400 13px system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; fill:#64748b; }
+    .tag   { font:600 11px system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; letter-spacing:.08em; }
+    .arrow { stroke:#334155; stroke-width:1.6; fill:none; marker-end:url(#a); }
+    .arrowg{ stroke:#059669; stroke-width:1.6; fill:none; marker-end:url(#g); }
+    .arrowa{ stroke:#d97706; stroke-width:1.6; fill:none; stroke-dasharray:5 4; marker-end:url(#o); }
+  </style>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#334155"/></marker>
+    <marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#059669"/></marker>
+    <marker id="o" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#d97706"/></marker>
+  </defs>
+
+  <rect class="box" x="18" y="120" width="130" height="56"/>
+  <text class="lbl" x="38" y="146">Command</text>
+  <text class="sub" x="38" y="164">ReportReading</text>
+
+  <rect class="box" x="182" y="120" width="150" height="56"/>
+  <text class="lbl" x="200" y="146">Aggregate</text>
+  <text class="sub" x="200" y="164">decides, does not store</text>
+
+  <path class="arrow" d="M152 148 L178 148"/>
+  <path class="arrow" d="M336 148 L378 148"/>
+
+  <text class="tag" x="382" y="52" fill="#475569">APPEND ONLY</text>
+  <rect class="store" x="380" y="64" width="230" height="200"/>
+  <text class="lbl" x="398" y="90">event_store</text>
+  <text class="sub" x="398" y="108">one row per fact, never updated</text>
+
+  <rect class="row" x="398" y="122" width="194" height="30"/>
+  <text class="mono" x="410" y="142">v1  DeviceInstalled</text>
+  <rect class="row" x="398" y="158" width="194" height="30"/>
+  <text class="mono" x="410" y="178">v2  ReadingReported</text>
+  <rect class="row" x="398" y="194" width="194" height="30"/>
+  <text class="mono" x="410" y="214">v3  ReadingCorrected</text>
+  <text class="mono" x="410" y="244">...</text>
+
+  <rect class="snap" x="656" y="72" width="228" height="56"/>
+  <text class="lbl" x="674" y="96">Snapshot at v240</text>
+  <text class="sub" x="674" y="114">only where a stream got long</text>
+
+  <rect class="box" x="656" y="152" width="228" height="56"/>
+  <text class="lbl" x="674" y="176">Current state</text>
+  <text class="sub" x="674" y="194">fold the stream in order</text>
+
+  <rect class="read" x="656" y="232" width="228" height="56"/>
+  <text class="lbl" x="674" y="256">Read models</text>
+  <text class="sub" x="674" y="274">projections, rebuilt on demand</text>
+
+  <path class="arrow" d="M614 172 L652 178"/>
+  <path class="arrowa" d="M614 108 L652 100"/>
+  <path class="arrowa" d="M770 132 L770 148"/>
+  <path class="arrowg" d="M614 216 L652 254"/>
+
+  <text class="note" x="18" y="330">The rows are the system of record. State and read models are both derived, so either can be thrown away and rebuilt.</text>
+  <text class="note" x="18" y="352">A snapshot is a cache of a fold, not a second source of truth. Deleting every snapshot changes nothing but latency.</text>
+</svg>

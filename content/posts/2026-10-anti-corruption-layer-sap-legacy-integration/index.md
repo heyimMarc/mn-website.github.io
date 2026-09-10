@@ -24,6 +24,8 @@ Two integration points bring legacy structure into our world. The first is work 
 
 The ACL is its own hexagonal adapter, deliberately isolated from the domain module by the same ArchUnit rules that protect every other boundary in the codebase. It has three stages, always in this order: parse, validate, transform.
 
+![Anti-corruption layer between legacy work orders on Azure Service Bus, SAP OData and SAP SOAP on one side and a clean domain model on the other, with parse, validate and translate stages and an ArchUnit-enforced boundary](acl-structure.svg)
+
 ```java
 @Component
 public class LegacyWorkOrderListener {

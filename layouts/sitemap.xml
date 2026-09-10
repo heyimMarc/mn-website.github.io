@@ -1,0 +1,28 @@
+{{/*
+  Override of Hugo's internal sitemap.
+
+  Toha ships a search stub per supported locale (search.es.md, search.fr.md and
+  so on). This site runs a single language, so all 27 of them resolve to the
+  same /search/ permalink and the generated sitemap listed that one URL 27
+  times. Search Console reports that as duplicate, canonical not selected.
+
+  This version emits each permalink once and drops the search page entirely,
+  since a client-side search form has nothing to index.
+*/}}
+{{ printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>" | safeHTML }}
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  {{ $seen := slice }}
+  {{ range .Data.Pages }}
+    {{ if and .Permalink (not (in $seen .Permalink)) }}
+      {{ if not (strings.Contains .Permalink "/search/") }}
+        {{ $seen = $seen | append .Permalink }}
+  <url>
+    <loc>{{ .Permalink }}</loc>
+    {{ if not .Lastmod.IsZero }}<lastmod>{{ safeHTML ( .Lastmod.Format "2006-01-02T15:04:05-07:00" ) }}</lastmod>{{ end }}
+    {{ with .Sitemap.ChangeFreq }}<changefreq>{{ . }}</changefreq>{{ end }}
+    {{ if ge .Sitemap.Priority 0.0 }}<priority>{{ .Sitemap.Priority }}</priority>{{ end }}
+  </url>
+      {{ end }}
+    {{ end }}
+  {{ end }}
+</urlset>

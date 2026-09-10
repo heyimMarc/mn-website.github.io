@@ -5,61 +5,77 @@
 
   Open Graph lives in the opengraph.html override, not here. No Twitter cards:
   Marc does not use X, and every other scraper reads Open Graph.
+
+  The JSON-LD below is built as a Go map and serialised once with jsonify.
+  Writing the JSON by hand and piping individual values through jsonify does
+  not work: Go's html/template treats anything inside <script> as JS context
+  and escapes the already-quoted output a second time, so every field came out
+  as "\"the actual value\"" and the block failed schema validation.
+  safeJS marks the finished document as trusted so it is emitted verbatim.
 */}}
 
 {{ $description := "" }}
 {{ with .Params.description }}{{ $description = . }}{{ else }}
   {{ with .Summary }}{{ $description = . | plainify }}{{ else }}{{ $description = site.Params.description }}{{ end }}
 {{ end }}
-{{ $description = $description | plainify | truncate 160 }}
+{{ $description = $description | plainify | htmlUnescape | truncate 160 }}
 
 <link rel="canonical" href="{{ .Permalink }}">
 
 {{ $robots := "index,follow" }}
 {{ if or .Draft .Params.noindex }}{{ $robots = "noindex,nofollow" }}{{ end }}
 <meta name="robots" content="{{ $robots }}">
+{{/* No meta description here: header.html (home) and single.html (posts)
+     already emit one, and a second tag is ignored at best. */}}
 
 {{ if .IsHome }}
 {{/* Person rather than WebSite: for a freelancer the entity worth describing
-     is the person, and this is what feeds a knowledge panel. */}}
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Marc Nützel",
-  "url": {{ site.BaseURL | jsonify }},
-  "jobTitle": "Senior Java Architect",
-  "description": {{ $description | jsonify }},
-  "address": {
-    "@type": "PostalAddress",
-    "addressRegion": "Nordrhein-Westfalen",
-    "addressCountry": "DE"
-  },
-  "knowsAbout": [
-    "Java", "Kotlin", "Spring Boot", "Kubernetes", "Microservices",
-    "Event Sourcing", "CQRS", "Domain-Driven Design", "PostgreSQL",
-    "Microsoft Azure", "Amazon Web Services", "Legacy Modernization"
-  ],
-  "sameAs": [
-    "https://www.linkedin.com/in/marcnuetzel",
-    "https://github.com/heyimMarc",
-    "https://www.xing.com/profile/Marc_Nuetzel"
-  ]
-}
-</script>
+     is the person, and this is what feeds a knowledge panel. The locality is
+     the same one already published in the Impressum, so it discloses nothing
+     new, and it is the only structured signal that ties the site to NRW. */}}
+{{ $person := dict
+  "@context" "https://schema.org"
+  "@type" "Person"
+  "name" "Marc Nützel"
+  "url" site.BaseURL
+  "image" (absURL "images/og/home.png")
+  "jobTitle" "Senior Java Architect"
+  "description" $description
+  "email" "mailto:me@marc-nuetzel.de"
+  "address" (dict
+    "@type" "PostalAddress"
+    "addressLocality" "Heiligenhaus"
+    "addressRegion" "Nordrhein-Westfalen"
+    "postalCode" "42579"
+    "addressCountry" "DE")
+  "knowsAbout" (slice
+    "Java" "Kotlin" "Spring Boot" "Kubernetes" "Microservices"
+    "Event Sourcing" "CQRS" "Domain-Driven Design" "PostgreSQL"
+    "Microsoft Azure" "Amazon Web Services" "Legacy Modernization"
+    "Cloud Migration" "GitOps" "Terraform")
+  "sameAs" (slice
+    "https://www.linkedin.com/in/marcnuetzel"
+    "https://github.com/heyimMarc"
+    "https://www.xing.com/profile/Marc_Nuetzel")
+}}
+<script type="application/ld+json">{{ $person | jsonify | safeJS }}</script>
 {{ else if .IsPage }}
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": {{ .Title | jsonify }},
-  "description": {{ $description | jsonify }},
-  "datePublished": {{ .PublishDate.Format "2006-01-02T15:04:05Z07:00" | jsonify }},
-  "dateModified": {{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" | jsonify }},
-  "mainEntityOfPage": {{ .Permalink | jsonify }},
-  "url": {{ .Permalink | jsonify }},
-  "author": {"@type": "Person", "name": "Marc Nützel", "url": {{ site.BaseURL | jsonify }}},
-  "publisher": {"@type": "Person", "name": "Marc Nützel"}
-}
-</script>
+{{ $img := "" }}
+{{ $keywords := delimit (.Params.tags | default slice) ", " }}
+{{ with .Resources.GetMatch "hero.{png,jpg,jpeg}" }}{{ $img = .Permalink }}{{ else }}{{ $img = absURL "images/og/home.png" }}{{ end }}
+{{ $posting := dict
+  "@context" "https://schema.org"
+  "@type" "BlogPosting"
+  "headline" .Title
+  "description" $description
+  "image" (slice $img)
+  "datePublished" (.PublishDate.Format "2006-01-02T15:04:05Z07:00")
+  "dateModified" (.Lastmod.Format "2006-01-02T15:04:05Z07:00")
+  "mainEntityOfPage" .Permalink
+  "url" .Permalink
+  "keywords" $keywords
+  "author" (dict "@type" "Person" "name" "Marc Nützel" "url" site.BaseURL)
+  "publisher" (dict "@type" "Person" "name" "Marc Nützel" "url" site.BaseURL)
+}}
+<script type="application/ld+json">{{ $posting | jsonify | safeJS }}</script>
 {{ end }}

@@ -17,3 +17,33 @@ html[data-theme='dark'] .experiences-section .circle {
 html[data-theme='dark'] .filled-button {
         color: white !important;
 }
+
+/*
+ * Post cards.
+ *
+ * Toha gives .card-head a fixed 172px height and lets the image keep its
+ * natural width inside a flex box, so a 1200x630 cover rendered at full size
+ * and the visible 172px slice was a hard crop through the middle of the title.
+ * Matching the head to the cover's own aspect ratio shows the whole image.
+ */
+.post-card .card .card-head {
+        height: auto;
+        aspect-ratio: 1200 / 630;
+}
+
+.post-card .card .card-head .card-img-top {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+}
+
+/*
+ * Images inside an article. Toha constrains nothing here, so a diagram or a
+ * screenshot wider than the ~667px reading column simply ran past it.
+ */
+.post-content img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+        margin: 1.75rem auto;
+}

@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 400" role="img" aria-labelledby="t d">
+  <title id="t">Transactional outbox flow</title>
+  <desc id="d">The service writes the business row and the outbox row in one PostgreSQL transaction. A separate relay claims unpublished outbox rows with FOR UPDATE SKIP LOCKED, publishes them to the broker and marks them published.</desc>
+  <style>
+    .box   { fill:#f8fafc; stroke:#cbd5e1; stroke-width:1.5; rx:8; }
+    .db    { fill:#f1f5f9; stroke:#94a3b8; stroke-width:1.5; rx:8; }
+    .tx    { fill:none; stroke:#0ea5e9; stroke-width:1.5; stroke-dasharray:6 4; rx:10; }
+    .lbl   { font:600 15px system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; fill:#1e293b; }
+    .sub   { font:400 12px ui-monospace,SFMono-Regular,Menlo,monospace; fill:#475569; }
+    .note  { font:400 13px system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; fill:#64748b; }
+    .code  { font:400 12px ui-monospace,SFMono-Regular,Menlo,monospace; fill:#0284c7; }
+    .txlbl { font:600 11px system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; fill:#0284c7; letter-spacing:.08em; }
+    .arrow { stroke:#334155; stroke-width:1.6; fill:none; marker-end:url(#a); }
+    .arrowq{ stroke:#0ea5e9; stroke-width:1.6; fill:none; marker-end:url(#b); }
+  </style>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#334155"/>
+    </marker>
+    <marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#0ea5e9"/>
+    </marker>
+  </defs>
+
+  <rect class="tx" x="150" y="34" width="230" height="176"/>
+  <text class="txlbl" x="164" y="54">ONE TRANSACTION</text>
+
+  <rect class="box" x="18" y="96" width="106" height="52"/>
+  <text class="lbl" x="38" y="120">Service</text>
+  <text class="sub" x="38" y="138">book()</text>
+
+  <rect class="db" x="180" y="68" width="170" height="52"/>
+  <text class="lbl" x="198" y="92">shipments</text>
+  <text class="sub" x="198" y="110">the business row</text>
+
+  <rect class="db" x="180" y="142" width="170" height="52"/>
+  <text class="lbl" x="198" y="166">outbox</text>
+  <text class="sub" x="198" y="184">published_at IS NULL</text>
+
+  <path class="arrow" d="M126 112 L176 96"/>
+  <path class="arrow" d="M126 134 L176 164"/>
+
+  <text class="note" x="150" y="234">Both rows commit or neither does.</text>
+
+  <rect class="box" x="640" y="142" width="110" height="52"/>
+  <text class="lbl" x="662" y="166">Relay</text>
+  <text class="sub" x="658" y="184">every 200 ms</text>
+
+  <rect class="box" x="782" y="142" width="100" height="52"/>
+  <text class="lbl" x="802" y="166">Broker</text>
+  <text class="sub" x="798" y="184">Kafka / ASB</text>
+
+  <path class="arrowq" d="M354 168 L636 168"/>
+  <text class="code" x="392" y="158">SELECT ... FOR UPDATE SKIP LOCKED</text>
+
+  <path class="arrowq" d="M754 168 L778 168"/>
+
+  <path class="arrowq" d="M832 194 L832 268 L266 268 L266 198"/>
+  <text class="code" x="470" y="288">UPDATE outbox SET published_at = now()</text>
+
+  <text class="note" x="18" y="332">A relay that dies before that update replays the message on the next pass.</text>
+  <text class="note" x="18" y="354">Consumers deduplicate on message_id, so delivery is at least once and never zero.</text>
+</svg>

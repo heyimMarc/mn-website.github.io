@@ -71,6 +71,8 @@ fun append(streamId: UUID, expectedVersion: Long, event: DomainEvent): Long {
 
 If the unique constraint fires, we catch `DuplicateKeyException`, reload the stream, and let the command handler decide whether to retry. This is the entire concurrency story. No version vectors, no CRDTs, just a constraint Postgres has enforced correctly since before I started my career.
 
+![Event sourcing on PostgreSQL: commands are decided by the aggregate and appended to an append-only event_store table, state is rebuilt by folding the stream from a snapshot, and projections build read models from the same rows](event-store-flow.svg)
+
 ## Replay and state reconstruction
 
 Reading a device's current state means loading its events in order and folding them into an aggregate:

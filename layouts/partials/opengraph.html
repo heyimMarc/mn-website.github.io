@@ -25,10 +25,15 @@
 {{ end }}
 {{ $description = $description | plainify | truncate 200 }}
 
+{{/* Image resolution, most specific first. The page bundle's hero.png is what
+     Toha already shows as the post banner, so the link preview and the page
+     agree instead of every post previewing as the same portrait. */}}
 {{ $image := "" }}
-{{ with .Params.images }}{{ $image = index . 0 }}{{ else }}
-  {{ with .Params.featuredImage }}{{ $image = . }}{{ else }}
-    {{ $image = ($data.site.openGraph.image | default $data.author.image) }}
+{{ with .Params.images }}{{ $image = index . 0 | absURL }}{{ else }}
+  {{ with .Params.featuredImage }}{{ $image = . | absURL }}{{ else }}
+    {{ with .Resources.GetMatch "hero.{png,jpg,jpeg}" }}{{ $image = .Permalink }}{{ else }}
+      {{ $image = ($data.site.openGraph.image | default $data.author.image) | absURL }}
+    {{ end }}
   {{ end }}
 {{ end }}
 
@@ -36,7 +41,9 @@
 <meta property="og:title" content="{{ $title }}"/>
 <meta property="og:type" content="{{ $type }}"/>
 <meta property="og:description" content="{{ $description }}"/>
-{{ with $image }}<meta property="og:image" content="{{ . | absURL }}">{{ end }}
+{{ with $image }}<meta property="og:image" content="{{ . }}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">{{ end }}
 <meta property="og:url" content="{{ .Permalink }}">
 <meta property="og:site_name" content="{{ site.Title }}">
 {{ if .IsPage }}
