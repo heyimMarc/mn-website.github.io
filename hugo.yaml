@@ -47,6 +47,14 @@ outputs:
     - RSS
     - JSON
 
+# Hugo's own location for the Google Analytics ID. Toha also carries it under
+# params.features.analytics, but that path hands a synthetic context to Hugo's
+# internal template, which newer Hugo versions ignore. This is the path the
+# internal template actually reads.
+services:
+  googleAnalytics:
+    ID: G-9E52YSRX5V
+
 # Enable global emoji support
 enableEmoji: true
 
@@ -160,9 +168,11 @@ params:
     analytics:
       enabled: true
       services:
-        # Google Analytics
-        google:
-          id: G-9E52YSRX5V
+        # Google Analytics is configured at the top level under
+        # services.googleAnalytics.ID instead. Setting it here as well makes
+        # Toha emit the tag a second time, which double-counts every pageview.
+        # google:
+        #   id: G-9E52YSRX5V
         # # CounterDev
         # counterDev:
         #   id: <your counterdev id>
