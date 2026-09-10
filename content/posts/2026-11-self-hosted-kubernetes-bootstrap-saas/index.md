@@ -1,13 +1,13 @@
 ---
 title: "Running Self-Hosted Kubernetes for a Bootstrapped SaaS"
-date: 2026-11-02T09:00:00+02:00
-draft: true
+date: 2026-11-09T09:00:00+02:00
+draft: false
 description: Operators for Postgres, Kafka and MinIO, Traefik and cert-manager for ingress and TLS, and an honest cost comparison against managed cloud, what running your own cluster actually gets you and what it costs in attention.
 menu:
   sidebar:
     name: "Self-Hosted Kubernetes for a Bootstrapped SaaS"
     identifier: self-hosted-kubernetes-bootstrap-saas
-    weight: 18
+    weight: 19
 tags: ["kubernetes", "self-hosted", "postgres-operator", "strimzi", "minio", "traefik", "cert-manager"]
 categories: ["devops"]
 ---

@@ -1,13 +1,13 @@
 ---
 title: "Micronaut + GraalVM Native Images: When It Pays Off"
-date: 2026-10-26T09:00:00+02:00
-draft: true
+date: 2026-11-02T09:00:00+02:00
+draft: false
 description: Build-time dependency injection and serialization make Micronaut a natural fit for GraalVM native-image, but reflection configuration and resource bundling still bite. Notes from running native microservices in production.
 menu:
   sidebar:
     name: "Micronaut + GraalVM Native Images"
     identifier: micronaut-graalvm-native-microservices
-    weight: 17
+    weight: 18
 tags: ["micronaut", "graalvm", "native-image", "java", "microservices"]
 categories: ["backend"]
 ---

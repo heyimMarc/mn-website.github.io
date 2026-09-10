@@ -1,13 +1,13 @@
 ---
 title: "AI-Assisted Development That Survives Code Review"
-date: 2026-11-09T09:00:00+02:00
-draft: true
+date: 2026-11-16T09:00:00+02:00
+draft: false
 description: Agent skills and automated review loops speed up code review, test generation and repetitive refactoring, but only if AI output goes through the exact same pipeline gates as anything a human wrote, with no exceptions.
 menu:
   sidebar:
     name: "AI-Assisted Development That Survives Review"
     identifier: ai-assisted-development-code-review
-    weight: 19
+    weight: 20
 tags: ["ai", "claude-code", "code-review", "developer-tooling", "quality-gates"]
 categories: ["backend"]
 ---

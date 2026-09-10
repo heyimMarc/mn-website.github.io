@@ -1,13 +1,13 @@
 ---
 title: "CQRS Read Models on PostgreSQL"
-date: 2026-11-16T09:00:00+02:00
-draft: true
+date: 2026-11-23T09:00:00+02:00
+draft: false
 description: Building projections from an event stream, rebuilding them without downtime, living with eventual consistency in the UI, and knowing when a plain SQL view is enough and CQRS is overkill.
 menu:
   sidebar:
     name: "CQRS Read Models on PostgreSQL"
     identifier: cqrs-read-models-postgresql
-    weight: 20
+    weight: 21
 tags: ["cqrs", "event-sourcing", "postgresql", "read-models", "projections"]
 categories: ["backend"]
 ---

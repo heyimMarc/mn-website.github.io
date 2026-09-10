@@ -1,13 +1,13 @@
 ---
 title: "Terraform on Azure with GitOps Discipline: State, Plans, and Drift"
-date: 2026-12-14T09:00:00+01:00
-draft: true
+date: 2026-12-21T09:00:00+01:00
+draft: false
 description: "Practical patterns for running Terraform against Azure with GitLab CI and ArgoCD: remote state, plan-in-MR review, module boundaries, and dealing honestly with drift."
 menu:
   sidebar:
     name: "Terraform + GitOps on Azure"
     identifier: terraform-azure-gitops
-    weight: 24
+    weight: 25
 tags: ["terraform", "azure", "gitops", "devops"]
 categories: ["devops"]
 ---

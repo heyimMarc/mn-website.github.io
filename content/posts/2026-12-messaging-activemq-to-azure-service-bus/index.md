@@ -1,13 +1,13 @@
 ---
 title: "From ActiveMQ to Azure Service Bus: What Maps and What Doesn't"
-date: 2026-12-07T09:00:00+01:00
-draft: true
+date: 2026-12-14T09:00:00+01:00
+draft: false
 description: A practitioner's comparison of JMS/ActiveMQ and Azure Service Bus, where the concepts translate cleanly, and where transactions and redelivery semantics quietly diverge.
 menu:
   sidebar:
     name: "ActiveMQ to Service Bus"
     identifier: messaging-activemq-to-azure-service-bus
-    weight: 23
+    weight: 24
 tags: ["azure", "service-bus", "jms", "activemq", "backend"]
 categories: ["backend"]
 ---

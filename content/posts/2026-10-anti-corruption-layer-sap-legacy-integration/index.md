@@ -1,13 +1,13 @@
 ---
 title: "The Anti-Corruption Layer in Practice: Keeping a Clean Domain Away from Legacy Work Orders and SAP"
-date: 2026-10-05T09:00:00+02:00
-draft: true
+date: 2026-10-12T09:00:00+02:00
+draft: false
 description: How an Anti-Corruption Layer consuming Azure Service Bus work orders and integrating SAP via OData and SOAP protects an event-sourced domain model, covering validation, transformation, and the failure modes that made the boundary non-negotiable.
 menu:
   sidebar:
     name: "Anti-Corruption Layer in Practice"
     identifier: anti-corruption-layer-sap-legacy-integration
-    weight: 14
+    weight: 15
 tags: ["anti-corruption-layer", "ddd", "integration", "sap", "azure-service-bus", "java"]
 categories: ["architecture"]
 ---

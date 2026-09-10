@@ -1,13 +1,13 @@
 ---
 title: "Contract-First with OpenAPI 3 and JSON Schema"
-date: 2026-09-28T09:00:00+02:00
-draft: true
+date: 2026-10-05T09:00:00+02:00
+draft: false
 description: How treating OpenAPI and JSON Schema as the single source of truth, generating both API clients and event classes from them, keeps services from drifting apart, and the versioning discipline that makes it sustainable.
 menu:
   sidebar:
     name: "Contract-First OpenAPI & JSON Schema"
     identifier: contract-first-openapi-json-schema
-    weight: 13
+    weight: 14
 tags: ["openapi", "json-schema", "api-design", "java", "kotlin", "contract-testing"]
 categories: ["backend"]
 ---

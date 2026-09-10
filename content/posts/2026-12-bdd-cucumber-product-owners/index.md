@@ -1,13 +1,13 @@
 ---
 title: "BDD That Product Owners Actually Read"
-date: 2026-12-28T09:00:00+01:00
-draft: true
+date: 2027-01-04T09:00:00+01:00
+draft: false
 description: Gherkin discipline for Cucumber suites that stay readable by non-engineers, how to avoid scenario explosion, and the difference between BDD as communication and BDD as test automation theater.
 menu:
   sidebar:
     name: "BDD for Product Owners"
     identifier: bdd-cucumber-product-owners
-    weight: 26
+    weight: 27
 tags: ["bdd", "cucumber", "testing", "backend"]
 categories: ["backend"]
 ---

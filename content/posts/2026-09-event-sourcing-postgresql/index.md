@@ -1,7 +1,7 @@
 ---
 title: "Event Sourcing on PostgreSQL: No Kafka Required"
 date: 2026-09-14T09:00:00+02:00
-draft: true
+draft: false
 description: How we run an event-sourced system of record for property units and metering devices on plain PostgreSQL, covering table design, replay, snapshots, and why the audit trail is a feature, not a side effect.
 menu:
   sidebar:

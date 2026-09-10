@@ -1,13 +1,13 @@
 ---
 title: "GitOps Delivery That Survives an Audit"
-date: 2026-10-19T09:00:00+02:00
-draft: true
+date: 2026-10-26T09:00:00+02:00
+draft: false
 description: How GitLab CI and ArgoCD split the pipeline into build and deploy, why pull-based sync beats a kubectl apply from CI, and the quality gates that keep an audit trail worth trusting on AKS.
 menu:
   sidebar:
     name: "GitOps: GitLab CI + ArgoCD on AKS"
     identifier: gitops-gitlab-argocd-aks
-    weight: 16
+    weight: 17
 tags: ["gitops", "gitlab-ci", "argocd", "kubernetes", "aks", "devops"]
 categories: ["devops"]
 ---

@@ -1,13 +1,13 @@
 ---
 title: "Testing Event-Sourced Services: The Pyramid, Testcontainers, and What Not to Test"
-date: 2026-10-12T09:00:00+02:00
-draft: true
+date: 2026-10-19T09:00:00+02:00
+draft: false
 description: How we test an event-sourced platform without drowning in brittle tests, covering the shape of the pyramid, Testcontainers for the real event store, Cucumber and REST Assured for end-to-end business processes, and the tests we deliberately do not write.
 menu:
   sidebar:
     name: "Testing Event-Sourced Services"
     identifier: testing-event-sourced-services
-    weight: 15
+    weight: 16
 tags: ["testing", "event-sourcing", "junit5", "testcontainers", "cucumber", "java"]
 categories: ["backend"]
 ---

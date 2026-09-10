@@ -1,13 +1,13 @@
 ---
 title: "Enforcing Hexagonal Architecture at Build Time with jMolecules and ArchUnit"
-date: 2026-09-21T09:00:00+02:00
-draft: true
+date: 2026-09-28T09:00:00+02:00
+draft: false
 description: Why we stopped relying on review comments to keep a hexagonal, DDD-aligned architecture intact and started failing the pipeline instead, covering jMolecules annotations, ArchUnit rules, and the violations that would otherwise have slipped through.
 menu:
   sidebar:
     name: "Enforcing Hexagonal Architecture"
     identifier: ddd-architecture-enforcement-jmolecules-archunit
-    weight: 12
+    weight: 13
 tags: ["ddd", "hexagonal-architecture", "archunit", "jmolecules", "java", "clean-architecture"]
 categories: ["backend"]
 ---

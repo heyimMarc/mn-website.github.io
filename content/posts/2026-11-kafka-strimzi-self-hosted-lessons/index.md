@@ -1,13 +1,13 @@
 ---
 title: "Running Kafka Yourself: What Strimzi Actually Buys You"
-date: 2026-11-23T09:00:00+01:00
-draft: true
+date: 2026-11-30T09:00:00+01:00
+draft: false
 description: What the Strimzi operator does for self-hosted Kafka on Kubernetes, where it still leaves you exposed, and when paying for managed Kafka is the right call.
 menu:
   sidebar:
     name: "Kafka via Strimzi"
     identifier: kafka-strimzi-self-hosted-lessons
-    weight: 21
+    weight: 22
 tags: ["kafka", "kubernetes", "strimzi", "devops"]
 categories: ["devops"]
 ---

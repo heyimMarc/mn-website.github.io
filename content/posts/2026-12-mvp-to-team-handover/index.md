@@ -1,13 +1,13 @@
 ---
 title: "From MVP to Team Handover: Architecting So Others Can Take Over"
-date: 2026-12-21T09:00:00+01:00
-draft: true
+date: 2026-12-28T09:00:00+01:00
+draft: false
 description: "Lessons from taking a route-planning platform from first MVP through a contractor phase to a permanent team of six in another country: architecture decision records, onboarding-by-test-suite, and making yourself replaceable on purpose."
 menu:
   sidebar:
     name: "MVP to Team Handover"
     identifier: mvp-to-team-handover
-    weight: 25
+    weight: 26
 tags: ["architecture", "team-building", "leadership"]
 categories: ["architecture"]
 ---

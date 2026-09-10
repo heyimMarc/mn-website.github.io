@@ -1,13 +1,13 @@
 ---
 title: "Zero-Downtime Schema Migrations: The Expand/Contract Pattern in Practice"
-date: 2026-11-30T09:00:00+01:00
-draft: true
+date: 2026-12-07T09:00:00+01:00
+draft: false
 description: How to run backwards-compatible schema migrations with Flyway using expand/contract, and why event-sourced systems make the problem both easier and harder.
 menu:
   sidebar:
     name: "Zero-Downtime Migrations"
     identifier: zero-downtime-database-migrations
-    weight: 22
+    weight: 23
 tags: ["postgresql", "flyway", "migrations", "backend"]
 categories: ["backend"]
 ---
