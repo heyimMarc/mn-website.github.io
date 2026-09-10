@@ -12,6 +12,14 @@ description: Freelance Senior Java Architect in NRW. Legacy modernization and cl
 # specify the list of custom menus that you want to show in the top navbar.
 # they will be separated by a divider from the main menus.
 customMenus:
+- name: Working With Me
+  url: https://www.marc-nuetzel.de/services/
+  hideFromNavbar: false
+  showOnFooter: true
+- name: Leistungen (DE)
+  url: https://www.marc-nuetzel.de/leistungen/
+  hideFromNavbar: true
+  showOnFooter: true
 - name: Impressum
   url: https://www.marc-nuetzel.de/impressum/
   # specify whether to hide the menu item from top navbar or not.

@@ -1,7 +1,7 @@
 ---
 title: "Production Readiness on Kubernetes Beyond 'It Deploys'"
 date: 2027-03-15T09:00:00+01:00
-draft: true
+draft: false
 description: Probes done right, resource limits that reflect reality, PodDisruptionBudgets, alerting on symptoms not causes, and wiring Actuator into Prometheus.
 menu:
   sidebar:

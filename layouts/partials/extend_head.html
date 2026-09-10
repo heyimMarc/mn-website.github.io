@@ -22,6 +22,16 @@
 
 <link rel="canonical" href="{{ .Permalink }}">
 
+{{/* Language alternates. Only the services page exists in two languages, so
+     the pair is declared per page rather than through Hugo's multilingual
+     setup, which would mean restructuring every content file. */}}
+{{ with .Params.alternate }}
+{{ $self := $.Params.lang | default site.Language.Lang }}
+<link rel="alternate" hreflang="{{ $self }}" href="{{ $.Permalink }}">
+<link rel="alternate" hreflang="{{ .lang }}" href="{{ .url | absURL }}">
+<link rel="alternate" hreflang="x-default" href="{{ cond (eq $self "en") $.Permalink (.url | absURL) }}">
+{{ end }}
+
 {{ $robots := "index,follow" }}
 {{ if or .Draft .Params.noindex }}{{ $robots = "noindex,nofollow" }}{{ end }}
 <meta name="robots" content="{{ $robots }}">

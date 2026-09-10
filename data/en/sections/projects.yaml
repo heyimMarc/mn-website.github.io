@@ -26,3 +26,17 @@ projects:
   repo: https://github.com/heyimMarc/transactional-outbox-postgres-example
   summary: Business state and the outgoing message committed in the same transaction, then relayed to a broker with FOR UPDATE SKIP LOCKED so two relays can run without publishing anything twice. Tests cover rollback, broker outage and concurrent relays.
   tags: ["professional", "messaging", "postgresql", "java"]
+
+- name: DDD enforced at build time
+  role: Author
+  timeline: "2026"
+  repo: https://github.com/heyimMarc/ddd-jmolecules-archunit-demo
+  summary: jMolecules marks the DDD building blocks, ArchUnit turns the architecture rules into tests, and the pipeline fails on a violation instead of a reviewer catching it in the diff. Ships with a deliberately failing example so you can see what a violation looks like before you have one.
+  tags: ["professional", "ddd", "architecture", "java"]
+
+- name: Testcontainers patterns
+  role: Author
+  timeline: "2026"
+  repo: https://github.com/heyimMarc/testcontainers-quickstart
+  summary: Four patterns that pay off in a real pipeline. A singleton container shared across the suite, per-class lifecycle where the isolation is worth the startup cost, a seeded schema, and WireMock for the third party you do not control.
+  tags: ["professional", "testing", "testcontainers", "java"]

@@ -1,7 +1,7 @@
 ---
 title: "A Legacy Modernization Playbook That Respects the Legacy"
 date: 2026-09-14T09:00:00+02:00
-draft: true
+draft: false
 description: Strangler fig with a real service layer, an anti-corruption layer against SAP and legacy work orders, and when event sourcing is worth the cost.
 menu:
   sidebar:

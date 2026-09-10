@@ -1,0 +1,41 @@
+{{/*
+  Layout for standalone pages (Impressum, Services, Leistungen).
+
+  The default post template gives every page a 400px hero banner, an author
+  photo, a publication date, a reading time, tags and a chronological pager
+  across the blog. A legal notice or a services page needs none of that, and
+  the pager in particular used to hand a reader the Impressum as the "next
+  article" after a technical post.
+*/}}
+{{ define "header" }}
+<meta name="description" content="{{ if .Description }}{{ .Description }}{{ else }}{{ .Title }}{{ end }}" />
+{{ end }}
+
+{{ define "navbar" }}
+    {{ partial "navigators/navbar.html" . }}
+{{ end }}
+
+{{ define "content" }}
+<section class="content-section standalone-page" id="content-section">
+  <div class="content">
+    <div class="container p-0 read-area">
+      <div class="page-content">
+        <div class="title">
+          <h1>{{ .Title }}</h1>
+        </div>
+        {{ with .Params.lead }}<p class="page-lead">{{ . }}</p>{{ end }}
+        {{ with .Params.alternate }}
+          <p class="lang-switch"><a href="{{ .url | relURL }}" hreflang="{{ .lang }}" lang="{{ .lang }}">{{ if eq .lang "de" }}Auf Deutsch lesen{{ else }}Read in English{{ end }}</a></p>
+        {{ end }}
+        <div class="post-content" id="post-content">
+          {{ .Content }}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}
+
+{{ define "footer" }}
+    {{ partial "footer.html" . }}
+{{ end }}

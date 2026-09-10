@@ -1,7 +1,7 @@
 ---
 title: "Platform Engineering Before You Called It That"
 date: 2027-04-12T09:00:00+02:00
-draft: true
+draft: false
 description: "Shared GitLab CI templates and IaC modules as an internal product: versioning, breaking-change discipline, and why adoption beats mandate."
 menu:
   sidebar:

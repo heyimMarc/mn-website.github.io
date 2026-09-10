@@ -256,3 +256,38 @@ html[data-theme] .footer {
 @media (max-width: 40rem) {
         .post-author-box { flex-direction: column; margin-left: 0; margin-right: 0; }
 }
+
+/*
+ * Standalone pages (Impressum, Services). They use layouts/page/single.html,
+ * which has no hero banner, so the content needs the top spacing the banner
+ * used to provide.
+ */
+.standalone-page {
+        .read-area { background-color: #ffffff; }
+
+        .page-content {
+                width: 100%;
+                max-width: 52rem;
+                margin: 0 auto;
+                padding: 2.5rem 1.5rem 3rem;
+                position: static;
+                top: auto;
+        }
+
+        .title h1 { margin-bottom: 0.75rem; }
+
+        .page-lead {
+                font-size: 1.15rem;
+                color: #334155;
+                margin-bottom: 2rem;
+                max-width: 60ch;
+        }
+
+        .post-content h2 { margin-top: 2.25rem; }
+        .post-content h3 { margin-top: 1.5rem; font-size: 1.15rem; }
+}
+
+.standalone-page .lang-switch {
+        margin: -1rem 0 2rem;
+        font-size: 0.94rem;
+}

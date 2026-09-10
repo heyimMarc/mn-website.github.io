@@ -2,6 +2,7 @@
 title: "Impressum"
 date: 2010-06-26T15:53:40+02:00
 description: Impressum
+type: page
 # the page lived under /posts/impressum/ until it moved out of the blog section
 aliases:
   - /posts/impressum/

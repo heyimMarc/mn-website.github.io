@@ -1,7 +1,7 @@
 ---
 title: "LLM Features in a Java Backend That Survive Production"
 date: 2027-06-07T09:00:00+02:00
-draft: true
+draft: false
 description: Timeouts, retries, schema validation, quotas, and a kill switch, treating the Anthropic API as just another unreliable upstream in a Java/Kotlin backend.
 menu:
   sidebar:

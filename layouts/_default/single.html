@@ -74,7 +74,9 @@
           {{ .Page.Content }}
         </div>
 
-        {{ if .IsPage }}
+        {{/* Blog posts only. The Impressum is a page too and has no business
+             carrying an author block and a project enquiry button. */}}
+        {{ if eq .Section "posts" }}
           {{ partial "post-author-box.html" . }}
         {{ end }}
 

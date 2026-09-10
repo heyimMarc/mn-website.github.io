@@ -16,7 +16,9 @@
   Keep this file in sync when upgrading Toha.
 */}}
 <!DOCTYPE html>
-<html lang="{{ .Site.Language.Lang }}">
+{{/* The site is English, but /leistungen/ is German. A page can declare its
+     own language so the lang attribute is not a lie on that one page. */}}
+<html lang="{{ .Params.lang | default .Site.Language.Lang }}">
   <head>
     <title>{{ if .IsHome }}{{ site.Title }}{{ with site.Params.titleSuffix }} | {{ . }}{{ end }}{{ else }}{{ .Page.Title }} | {{ site.Title }}{{ end }}</title>
     <!------ ADD COMMON HEADERS -------->
