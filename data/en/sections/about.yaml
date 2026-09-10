@@ -8,18 +8,25 @@ section:
   template: sections/about.html
 
 # your designation
-designation: Senior Java Architect · Legacy Modernization & Cloud
-# your company information
-company:
-  name: Marc Nützel IT-Solutions
-  url: "https://www.marc-nuetzel.de"
+designation: Senior Java Architect · Legacy Modernization & Cloud Migration
 
 # your resume. this file path should be relative to you "static" directory
 # Deprecated. Use resourceLinks instead.
 # resume: "files/resume.pdf"
 
 # a summary about you
-summary: 'I architect and deliver production-grade Java platforms with Spring Boot and Kubernetes, plus solid working Kotlin from a current project. I help teams ship microservices faster with clean, testable code, event-driven architecture, CI/CD automation, and cloud-native reliability (Azure/AWS). Since 2010, I’ve led and scaled backend systems in logistics, e‑commerce, energy, and fintech. Current availability: open for new full-time projects from January 2027, remote or NRW on‑site. Let’s make your roadmap real.'
+summary: 'I take Java systems that have grown for a decade and move them onto Kubernetes and event-driven architecture without stopping the business that depends on them. Since 2010 I have built backend platforms in logistics, energy, e-commerce and fintech. Recent years have mostly been migrations: Docker Swarm to Kubernetes and on-premise applications to Azure, plus a legacy work-order feed that got wrapped in an anti-corruption layer instead of a rewrite. Claude Code and custom agent skills are part of how I deliver, with a human reading every change before it merges. Open for freelance projects from January 2027, remote or on-site in NRW.'
+
+# Availability and the one action a visitor should be able to take. Rendered by
+# the about.html override, not by stock Toha.
+availability:
+  status: "Available from January 2027"
+  detail: "Freelance projects, remote or on-site in NRW"
+
+contactCta:
+  label: "Email me about a project"
+  email: "me@marc-nuetzel.de"
+  subject: "Project enquiry"
 
 # your social links
 # give as many as you want. use font-awesome for the icons.
@@ -45,49 +52,3 @@ socialLinks:
 #resourceLinks:
 #- title: "My Resume"
 #  url: "files/resume.pdf"
-
-# Show your badges
-# You can show your verifiable certificates from https://www.credly.com.
-# You can also show a circular bar indicating the level of expertise on a certain skill
-badges:
-
-- type: soft-skill-indicator
-  name: Spring Boot
-  percentage: 95
-  color: blue
-
-- type: soft-skill-indicator
-  name: Java
-  percentage: 95
-  color: yellow
-
-- type: soft-skill-indicator
-  name: Kotlin
-  percentage: 90
-  color: "#7F52FF"
-
-- type: soft-skill-indicator
-  name: Microservices
-  percentage: 95
-  color: orange
-
-- type: soft-skill-indicator
-  name: Kubernetes
-  percentage: 90
-  color: green
-
-- type: soft-skill-indicator
-  name: Event Sourcing / CQRS
-  percentage: 90
-  color: sky
-
-- type: soft-skill-indicator
-  name: Docker
-  percentage: 95
-  color: blue
-
-# you can also provide color code instead of the color name
-# - type: soft-skill-indicator
-#   name: Example 1
-#   percentage: 75
-#   color: "#00adb5"

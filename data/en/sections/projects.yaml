@@ -2,84 +2,27 @@
 section:
   name: Projects
   id: projects
-  enable: false
+  enable: true
   weight: 5
-  showOnNavbar: false
-  # Can optionally hide the title in sections
-  # hideTitle: true
+  showOnNavbar: true
 
-# filter buttons
+# The theme ships filter buttons for Academic and Hobby. There is nothing in
+# either category, and an empty filter is worse than no filter.
 buttons:
 - name: All
   filter: "all"
-- name: Professional
-  filter: "professional"
-- name: Academic
-  filter: "academic"
-- name: Hobby
-  filter: "hobby"
 
-# your projects
 projects:
 - name: Event Sourcing on PostgreSQL
   role: Author
-  timeline: "2026 - Present"
+  timeline: "2026"
   repo: https://github.com/heyimMarc/event-sourcing-postgres-example
-  summary: Runnable event store on plain PostgreSQL (optimistic concurrency, snapshots, Testcontainers suite). Companion to the blog series.
-  tags: ["professional", "event-sourcing", "postgresql"]
+  summary: A working event store on plain PostgreSQL, without a broker, an ORM or a framework. One table, one aggregate, plain JDBC, optimistic concurrency on the stream version, snapshots, and a Testcontainers suite that runs against a real database. Companion code to the article of the same name.
+  tags: ["professional", "event-sourcing", "postgresql", "java"]
 
-- name: DDD enforced at build time
+- name: Transactional Outbox on PostgreSQL
   role: Author
-  timeline: "2026 - Present"
-  repo: https://github.com/heyimMarc/ddd-jmolecules-archunit-demo
-  summary: jMolecules + ArchUnit rules that fail the pipeline instead of the review, with a deliberately failing example.
-  tags: ["professional", "ddd", "architecture"]
-
-- name: Testcontainers patterns
-  role: Author
-  timeline: "2026 - Present"
-  repo: https://github.com/heyimMarc/testcontainers-quickstart
-  summary: The four Testcontainers patterns that pay off in real pipelines.
-  tags: ["professional", "testing", "testcontainers"]
-
-- name: Kubernetes
-  logo: /images/sections/projects/kubernetes.png
-  role: Contributor
-  timeline: "March 2018 - Present"
-  repo: https://github.com/kubernetes/kubernetes # If your project is a public repo on GitHub, then provide this link. it will show star count.
-  #url: ""  # If your project is not a public repo but it has a website or any external details url then provide it here. don't provide "repo" and "url" simultaneously.
-  summary: Production-Grade Container Scheduling and Management.
-  tags: ["professional", "kubernetes", "cloud"]
-
-- name: Tensorflow
-  logo: /images/sections/projects/tensorflow.png
-  role: Developer
-  timeline: "Jun 2018 - Present"
-  repo: https://github.com/tensorflow/tensorflow
-  #url: ""
-  summary: An Open Source Machine Learning Framework for Everyone.
-  tags: ["professional", "machine-learning"]
-
-- name: A sample academic paper
-  role: Team Lead
-  timeline: "Jan 2017 - Nov 2017"
-  url: "https://www.example.com"
-  summary: Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente eius reprehenderit animi suscipit autem eligendi esse amet aliquid error eum. Accusantium distinctio soluta aliquid quas placeat modi suscipit eligendi nisi.
-  tags: ["academic","iot"]
-
-- name: Nocode
-  logo: /images/sections/projects/no-code.png
-  role: Nothing
-  timeline: "Oct 2019 - Dec 2019"
-  repo: https://github.com/kelseyhightower/nocode
-  #url: ""
-  summary: The best way to write secure and reliable applications. Write nothing; deploy nowhere.
-  tags: ["hobby", "fun"]
-
-- name: Toha
-  logo: /images/sections/projects/toha.png
-  role: Owner
-  timeline: "Jun 2019 - Present"
-  repo: https://github.com/hossainemruz/toha
-  summary: A Hugo theme for personal portfolio.
-  tags: ["hobby","hugo","theme","professional"]
+  timeline: "2026"
+  repo: https://github.com/heyimMarc/transactional-outbox-postgres-example
+  summary: Business state and the outgoing message committed in the same transaction, then relayed to a broker with FOR UPDATE SKIP LOCKED so two relays can run without publishing anything twice. Tests cover rollback, broker outage and concurrent relays.
+  tags: ["professional", "messaging", "postgresql", "java"]

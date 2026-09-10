@@ -14,8 +14,7 @@ contactInfo:
 
 # some summary about what you do
 summary:
-  - Senior Java Architect · Legacy Modernization & Cloud
-  - Spring Boot + Microservices on Kubernetes
-  - CI/CD, TDD, Clean Code pragmatism
-  - Available for new projects from January 2027
-  - Remote or NRW on‑site
+  - Senior Java Architect · Legacy Modernization & Cloud Migration
+  - Available for freelance projects from January 2027, remote or NRW on-site
+  - Migrations that shipped: Docker Swarm to Kubernetes, on-premise to Azure
+  - AI-assisted delivery with Claude Code, human review on every merge

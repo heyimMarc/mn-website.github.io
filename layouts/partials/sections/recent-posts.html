@@ -1,0 +1,45 @@
+{{/*
+  Override of the Toha section template. Only change: the section heading is an
+  <h2>, not an <h1>. The theme gave every section on the home page its own
+  <h1>, so the page carried four of them and the one heading that should carry
+  the page's topic competed with three navigation labels.
+
+  Sizing is restored in assets/styles/override.scss so nothing looks different.
+  Keep in sync when upgrading Toha.
+*/}}
+{{ $sectionID := replace (lower .section.name) " " "-"  }}
+{{ if .section.id }}
+  {{ $sectionID = .section.id }}
+{{ end }}
+
+{{ $numShow := 3}}
+{{ if .section.numShow }}
+  {{ $numShow = .section.numShow }}
+{{ end }}
+
+
+<div class="container-fluid anchor pb-5 recent-posts-section">
+  {{ if not (.section.hideTitle) }}
+    <h2 class="text-center">
+        <span id="{{ $sectionID }}"></span>{{ .section.name }}</h2>
+  {{ else }}
+    <h2 class="text-center" style="display: none">
+        <span id="{{ $sectionID }}"></span>{{ .section.name }}</h2>
+  {{ end }}
+  <div class="container">
+    <div class="row" id="recent-post-cards">
+      {{ range first $numShow (where (where site.RegularPages.ByDate.Reverse "Type" "posts" ) "Layout" "!=" "search") }}
+        {{ partial "cards/post.html" . }}
+      {{ end }}
+    </div>
+  </div>
+  {{ if (.section.showMoreButton) }}
+  <div class="container" style="
+  display: flex;
+  align-items: center;
+  justify-content: center;">
+    <a href="/posts/" title="Show More" class="float-end btn btn-outline-info btn-sm" >
+    {{ i18n "show_more"}}</a>
+  </div>
+  {{ end }}
+</div>

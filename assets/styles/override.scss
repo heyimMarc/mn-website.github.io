@@ -102,3 +102,157 @@ html[data-theme] .footer {
                 }
         }
 }
+
+/*
+ * Availability line and contact button.
+ *
+ * Used twice: in the hero over the background photo, and in the About section
+ * on the light ground. Both come from data/en/sections/about.yaml through the
+ * home.html and about.html overrides.
+ */
+.availability-dot {
+        display: inline-block;
+        width: 0.55rem;
+        height: 0.55rem;
+        border-radius: 50%;
+        background: #10b981;
+        margin-right: 0.5rem;
+        flex: none;
+}
+
+.hero-actions {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        margin-top: 1.75rem;
+}
+
+.hero-availability {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0 0.5rem;
+        margin: 0;
+        font-size: 1rem;
+        color: #1e293b;
+}
+
+.hero-availability .availability-text { font-weight: 600; }
+.hero-availability .availability-detail { color: #475569; }
+
+/* Toha colours links inside the content areas with accent-color (#0f172a),
+   which is the same slate as this button's fill, so the label rendered
+   invisible. The colour is forced rather than chased selector by selector,
+   because the button appears in three different content areas. */
+.hero-cta,
+.contact-cta {
+        color: #f8fafc !important;
+}
+
+.hero-cta,
+.contact-cta {
+        display: inline-block;
+        background: #0f172a;
+        color: #f8fafc;
+        font-weight: 600;
+        padding: 0.7rem 1.5rem;
+        border-radius: 6px;
+        text-decoration: none !important;
+        transition: background 0.2s ease-out;
+}
+
+.hero-cta:hover,
+.hero-cta:focus,
+.contact-cta:hover,
+.contact-cta:focus {
+        background: #0369a1;
+        color: #f8fafc;
+}
+
+.about-section {
+        .availability {
+                display: flex;
+                align-items: center;
+                flex-wrap: wrap;
+                gap: 0 0.5rem;
+                margin-bottom: 0.5rem;
+        }
+
+        .availability-text { font-weight: 600; color: #1e293b; }
+        .availability-detail { color: #475569; }
+
+        .contact-cta { margin-top: 0.5rem; }
+}
+
+/* The hero column is centred, so the arrow needs room below the new block. */
+.home .content .arrow-center { margin-top: 1.5rem; }
+
+/*
+ * Section headings are <h2> now (see the section template overrides), so they
+ * would otherwise drop from Bootstrap's h1 size to h2. Keep the visual size.
+ */
+.skills-section,
+.recent-posts-section,
+.projects-section,
+.experiences-section {
+        > h2.text-center {
+                font-size: calc(1.375rem + 1.5vw);
+        }
+}
+
+@media (min-width: 1200px) {
+        .skills-section > h2.text-center,
+        .recent-posts-section > h2.text-center,
+        .projects-section > h2.text-center,
+        .experiences-section > h2.text-center {
+                font-size: 2.5rem;
+        }
+}
+
+/* Author block at the end of a post. */
+.post-author-box {
+        display: flex;
+        gap: 1.25rem;
+        align-items: flex-start;
+        margin: 2.5rem 1rem 1rem;
+        padding: 1.5rem;
+        background: #f1f5f9;
+        border-radius: 8px;
+
+        .pab-avatar {
+                border-radius: 50%;
+                flex: none;
+                width: 80px;
+                height: 80px;
+                object-fit: cover;
+        }
+
+        .pab-body { display: flex; flex-direction: column; gap: 0.3rem; min-width: 0; }
+
+        .pab-name { margin: 0; font-weight: 700; font-size: 1.1rem; color: #1e293b; }
+        .pab-role { margin: 0; color: #334155; }
+
+        .pab-availability {
+                display: flex;
+                align-items: center;
+                margin: 0.25rem 0 0;
+                color: #475569;
+                font-size: 0.94rem;
+        }
+
+        .pab-actions {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                gap: 0.9rem;
+                margin-top: 0.85rem;
+        }
+
+        .pab-link { color: #0369a1; font-weight: 600; }
+}
+
+@media (max-width: 40rem) {
+        .post-author-box { flex-direction: column; margin-left: 0; margin-right: 0; }
+}

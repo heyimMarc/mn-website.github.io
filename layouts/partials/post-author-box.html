@@ -1,0 +1,28 @@
+{{/*
+  Author block at the end of a post. Content comes from data/en/author.yaml and
+  data/en/sections/about.yaml so it stays in one place.
+*/}}
+{{ $data := index site.Data site.Language.Lang }}
+{{ $author := $data.author }}
+{{ $about := index $data.sections "about" }}
+{{ $img := resources.Get $author.image }}
+{{ if and $img (ne $img.MediaType.SubType "svg") }}{{ $img = $img.Fit "160x160" }}{{ end }}
+
+<aside class="post-author-box">
+  {{ with $img }}<img class="pab-avatar" src="{{ .RelPermalink }}" width="80" height="80" alt="{{ $author.name }}" loading="lazy">{{ end }}
+  <div class="pab-body">
+    <p class="pab-name">{{ $author.name }}</p>
+    {{ with $about.designation }}<p class="pab-role">{{ . }}</p>{{ end }}
+    {{ with $about.availability }}
+      <p class="pab-availability">
+        <span class="availability-dot" aria-hidden="true"></span>{{ .status }}{{ with .detail }} &middot; {{ . }}{{ end }}
+      </p>
+    {{ end }}
+    <div class="pab-actions">
+      {{ with $about.contactCta }}
+        <a class="contact-cta" href="mailto:{{ .email }}?subject={{ printf "%s (%s)" .subject $.Title | urlquery }}">{{ .label }}</a>
+      {{ end }}
+      <a class="pab-link" href="{{ "posts/" | relLangURL }}">All posts</a>
+    </div>
+  </div>
+</aside>

@@ -1,0 +1,30 @@
+{{/*
+  Override of the Toha section template. Only change: the section heading is an
+  <h2>, not an <h1>. The theme gave every section on the home page its own
+  <h1>, so the page carried four of them and the one heading that should carry
+  the page's topic competed with three navigation labels.
+
+  Sizing is restored in assets/styles/override.scss so nothing looks different.
+  Keep in sync when upgrading Toha.
+*/}}
+{{ $sectionID := replace (lower .section.name) " " "-"  }}
+{{ if .section.id }}
+  {{ $sectionID = .section.id }}
+{{ end }}
+
+<div class="container-fluid anchor pb-5 skills-section">
+  {{ if not (.section.hideTitle) }}
+    <h2 class="text-center">
+        <span id="{{ $sectionID }}"></span>{{ .section.name }}</h2>
+  {{ else }}
+    <h2 class="text-center" style="display: none">
+        <span id="{{ $sectionID }}"></span>{{ .section.name }}</h2>
+  {{ end }}
+  <div class="container d-flex-block">
+    <div class="row" id="primary-skills">
+      {{ range .skills }}
+        {{ partial "cards/skill.html" . }}
+      {{ end }}
+    </div>
+  </div>
+</div>

@@ -3,7 +3,7 @@ section:
   name: Experiences
   id: experiences
   enable: true
-  weight: 3
+  weight: 8
   showOnNavbar: true
   # Can optionally hide the title in sections
   # hideTitle: true
@@ -20,7 +20,7 @@ experiences:
     # company overview
     overview: ista SE is one of the leading energy service providers, helping apartment buildings and commercial properties become more energy efficient.
   positions:
-  - designation: Senior Backend Engineer (Kotlin / Java) (perm position)
+  - designation: Senior Backend Engineer (Kotlin / Java)
     start: May 2025
     responsibilities:
     - Contributed to a greenfield, event-sourced platform that serves as the system of record for property units and the full lifecycle of their metering devices (installation, replacement, removal)
@@ -61,7 +61,7 @@ experiences:
     logo: /images/sections/experiences/xpertz.svg
     overview: WBA is my own three-founder company. Its product Pitchtri is a talent-management platform that lets tech recruiters manage, compare and match IT freelancer profiles to projects.
   positions:
-  - designation: Co-Founder & Software Architect (side venture)
+  - designation: Co-Founder & Software Architect
     start: 2020
     responsibilities:
     - Co-founded the company; responsible for product architecture and delivery end to end, from domain model to production operations
@@ -91,7 +91,7 @@ experiences:
     - Applied object-oriented analysis and design with common design patterns, and supported the build and deployment process
     - Java, Spring Boot, Docker, Hibernate, Flyway, GitLab CI, Spock, Kubernetes, AWS, Maven
 
-  - designation: Lead Developer (perm position)
+  - designation: Lead Developer
     start: Feb 2018
     end: Jan 2020
     responsibilities:
@@ -101,7 +101,7 @@ experiences:
     - Handed the project over to the team in Poland and established a lead developer role there
     - Java, Spring Boot, Docker, Hibernate, Flyway, GitLab CI, Spock, Kubernetes, AWS, PostgreSQL, Maven
 
-  - designation: Java Backend Developer (perm position)
+  - designation: Java Backend Developer
     start: Jan 2017
     end: Jan 2018
     responsibilities:
@@ -109,7 +109,7 @@ experiences:
     - Worked in a team of four developers in Essen and delivered the project on schedule
     - Java, Spring Boot, Docker, Hibernate, Flyway, GitLab CI, JUnit, Kubernetes, AWS, Vue.js, Netflix Stack, PostgreSQL, Maven
 
-  - designation: Java Backend Developer (perm position)
+  - designation: Java Backend Developer
     start: Jan 2016
     end: Jan 2017
     responsibilities:
@@ -118,14 +118,14 @@ experiences:
     - Containerised legacy applications and provided the supporting Docker images for the CI pipelines
     - Kubernetes, Docker, Terraform, Packer, GitLab CI, Ansible, Python, Spring Boot, Oracle, PostgreSQL
 
-  - designation: Fullstack Developer (perm position)
+  - designation: Fullstack Developer
     start: August 2015
     end: Jan 2016
     responsibilities:
     - Built a self-service portal for Atlassian Confluence and Jira, so teams could request spaces and projects without a ticket to IT
     - Java, Spring Boot, Gradle, Vue.js, npm
 
-  - designation: Fullstack Developer (perm position)
+  - designation: Fullstack Developer
     start: August 2014
     end: August 2015
     responsibilities:
@@ -142,7 +142,7 @@ experiences:
     # darkLogo: /images/sections/experiences/company3.jpg
     overview: Plus Online GmbH was part of the Tengelmann Group and ran its e-commerce business.
   positions:
-  - designation: Deputy Lead Developer (perm position)
+  - designation: Deputy Lead Developer
     start: August 2011
     end: July 2014
     responsibilities:
@@ -150,7 +150,7 @@ experiences:
     - Worked hands-on in development, specialising in payment processes and API design for the online shop
     - Java, Intershop Enfinity, Servlets, JSP, Angular, Oracle
 
-  - designation: Fullstack Developer (perm position)
+  - designation: Fullstack Developer
     start: April 2010
     end: July 2011
     responsibilities:
@@ -158,7 +158,7 @@ experiences:
     - Maintained and extended the existing shop functionality together with the e-commerce team
     - Java, Intershop Enfinity, Servlets, JSP, Angular, Oracle
 
-  - designation: System Administrator (perm position)
+  - designation: System Administrator
     start: April 2008
     end: March 2010
     responsibilities:
@@ -166,13 +166,13 @@ experiences:
     - Intershop Enfinity, SUSE Linux, Apache Tomcat, Apache HTTP Server, Bash scripting
 
 - company:
-    name: Düsseldorf District Government
+    name: Bezirksregierung Düsseldorf
     url: "https://www.brd.nrw.de"
     location: Düsseldorf
     logo: /images/sections/experiences/bezregdue.png
     # Can optionally show a different logo for dark theme
     # darkLogo: /images/sections/experiences/company3.jpg
-    overview: The district government of Düsseldorf is part of the state administration of North Rhine-Westphalia.
+    overview: The Bezirksregierung Düsseldorf is the district government of Düsseldorf and part of the state administration of North Rhine-Westphalia.
   positions:
     - designation: IT Specialist
       start: Jan 2008

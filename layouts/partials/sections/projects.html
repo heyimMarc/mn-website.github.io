@@ -1,0 +1,39 @@
+{{/*
+  Override of the Toha section template. Only change: the section heading is an
+  <h2>, not an <h1>. The theme gave every section on the home page its own
+  <h1>, so the page carried four of them and the one heading that should carry
+  the page's topic competed with three navigation labels.
+
+  Sizing is restored in assets/styles/override.scss so nothing looks different.
+  Keep in sync when upgrading Toha.
+*/}}
+{{ $sectionID := replace (lower .section.name) " " "-"  }}
+{{ if .section.id }}
+  {{ $sectionID = .section.id }}
+{{ end }}
+
+<div class="container-fluid anchor pb-5 projects-section" id="{{ $sectionID }}">
+  {{ if not (.section.hideTitle) }}
+    <h2 class="text-center">
+        <span id="{{ $sectionID }}"></span>{{ .section.name }}</h2>
+  {{ else }}
+    <h2 class="text-center" style="display: none">
+        <span id="{{ $sectionID }}"></span>{{ .section.name }}</h2>
+  {{ end }}
+  <div class="container ms-auto text-center">
+    <div class="btn-group flex-wrap" role="group" id="project-filter-buttons">
+      {{ range .buttons }}
+      <button type="button" class="btn btn-dark project-filtr-control" data-filter="{{ .filter }}">
+        {{ .name }}
+      </button>
+      {{ end }}
+    </div>
+  </div>
+  <div class="container filtr-projects">
+    <div class="row" id="project-card-holder">
+      {{ range .projects }}
+        {{ partial "cards/project" . }}
+      {{ end }}
+    </div>
+  </div>
+</div>

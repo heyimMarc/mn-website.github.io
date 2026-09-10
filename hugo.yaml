@@ -103,7 +103,7 @@ params:
 
   # Configure the number of section title visible in the top navbar
   topNavbar:
-    maxVisibleSections: 5
+    maxVisibleSections: 6
 
   # Configure various features of this theme
   features:
@@ -123,7 +123,7 @@ params:
       # Share post on different social media
       shareButtons:
         facebook: true
-        twitter: true
+        twitter: false # Marc does not use X
         linkedin: true
         reddit: true
         whatsapp: true
