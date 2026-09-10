@@ -48,10 +48,10 @@ experiences:
     start: April 2020
     end: March 2025
     responsibilities:
-    - Built Spring Boot integration services that collect data from several source systems and consolidate it in a central system
-    - Designed and documented the REST APIs contract-first with OpenAPI 3.0
-    - Migrated the service landscape from Docker Swarm to Kubernetes, and several applications from on-premise to Azure
-    - Connected services asynchronously via JMS (ActiveMQ) and built batch jobs with Spring Batch
+    - Migrated the service landscape from Docker Swarm to Kubernetes and moved on-premise applications to Azure, while the services kept running for the business that depended on them
+    - Replaced manual data consolidation across several source systems with Spring Boot integration services feeding one central system
+    - Decoupled services that had been calling each other synchronously, using JMS on ActiveMQ and Spring Batch for the work that belonged in a batch
+    - Designed and documented the REST APIs contract-first with OpenAPI 3.0, so the consuming teams stopped guessing
     - Developed the matching Angular frontends and covered the backends with JUnit and Mockito tests
     - Java, Spring Boot, Docker, Kubernetes, Hibernate, Liquibase, Angular, GitLab CI, JUnit, Mockito, Spring Batch, Azure, Maven, MariaDB, PostgreSQL
 
