@@ -316,3 +316,49 @@ html[data-theme] .footer {
 .pagination .page-link[aria-current="page"] {
         color: #f8fafc !important;
 }
+
+/*
+ * Hover and focus states.
+ *
+ * Same root cause as the footer, the contact button and the Projects filter:
+ * accent-color, hover-over-accent-color and text-over-accent-color in
+ * variables.scss are all #0f172a. On hover the theme fills these controls with
+ * the accent and then labels them with a colour that is either the same slate
+ * or one step off it.
+ *
+ * Measured before the fix, against the hover fill:
+ *   .btn-outline-info (the "Read" button on every post card)  1.00:1
+ *   .btn-info (the tag pills, 33 per post list)               1.72:1
+ *
+ * The label is forced light rather than chased through the theme's
+ * html[data-theme='dark'] variants, which outrank a plain selector.
+ */
+/* The theme declares its own !important on these, and its dark variant carries
+   html[data-theme='dark'] in the selector. Among !important declarations the
+   higher specificity wins, so the plain selector alone loses. These match the
+   theme's shape and come later in the file. */
+.btn-info:hover,
+.btn-info:focus,
+.btn-info:active,
+.btn-outline-info:hover,
+.btn-outline-info:focus,
+.btn-outline-info:active,
+html[data-theme] .btn-info:hover,
+html[data-theme] .btn-info:focus,
+html[data-theme] .btn-info:active,
+html[data-theme] .btn-outline-info:hover,
+html[data-theme] .btn-outline-info:focus,
+html[data-theme] .btn-outline-info:active {
+        color: #f8fafc !important;
+        background-color: #0f172a !important;
+        border-color: #0f172a !important;
+}
+
+/* Keyboard users need to see where they are. The theme leaves focus to the
+   browser default, which the fills above swallow. */
+a:focus-visible,
+button:focus-visible,
+.btn:focus-visible {
+        outline: 2px solid #0369a1;
+        outline-offset: 2px;
+}
