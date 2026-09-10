@@ -47,3 +47,58 @@ html[data-theme='dark'] .filled-button {
         height: auto;
         margin: 1.75rem auto;
 }
+
+/*
+ * Footer contrast.
+ *
+ * The footer background is footer-color (#0f172a, slate 900) while Toha styles
+ * the text on it with heading-color (#1e293b) and muted-text-color (#64748b),
+ * the same tokens it uses on the light body. That puts the section headings at
+ * about 1.2:1 against their own background, dark blue on dark blue, and the
+ * links at 3.75:1, under the 4.5:1 WCAG AA wants for body text.
+ *
+ * The selector has to carry html[data-theme] because baseof stamps that
+ * attribute from the OS colour scheme even with features.darkMode.enable off,
+ * and the theme's html[data-theme='dark'] .footer h5 rule would otherwise win
+ * on specificity. Both theme maps in variables.scss hold the same values, so
+ * one set of colours covers either attribute value.
+ */
+.footer,
+html[data-theme] .footer {
+        color: #cbd5e1 !important;
+
+        h4,
+        h5 {
+                color: #f8fafc;
+                font-weight: 700;
+                letter-spacing: 0.02em;
+                margin-bottom: 0.75rem;
+        }
+
+        a {
+                color: #cbd5e1;
+                text-decoration: none;
+
+                &:hover,
+                &:focus {
+                        color: #38bdf8;
+                        text-decoration: #38bdf8 underline;
+                }
+        }
+
+        p:first-child {
+                color: #f8fafc;
+        }
+
+        hr {
+                background-color: #334155;
+        }
+
+        #disclaimer {
+                color: #94a3b8 !important;
+
+                & > strong {
+                        color: #cbd5e1 !important;
+                }
+        }
+}
