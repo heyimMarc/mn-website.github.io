@@ -20,6 +20,9 @@
     <h2 class="text-center" style="display: none">
         <span id="{{ $sectionID }}"></span>{{ .section.name }}</h2>
   {{ end }}
+  {{/* A filter row with a single "All" button filters nothing. It is only
+       rendered once there is something to choose between. */}}
+  {{ if gt (len .buttons) 1 }}
   <div class="container ms-auto text-center">
     <div class="btn-group flex-wrap" role="group" id="project-filter-buttons">
       {{ range .buttons }}
@@ -29,6 +32,7 @@
       {{ end }}
     </div>
   </div>
+  {{ end }}
   <div class="container filtr-projects">
     <div class="row" id="project-card-holder">
       {{ range .projects }}

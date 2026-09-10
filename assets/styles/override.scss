@@ -291,3 +291,28 @@ html[data-theme] .footer {
         margin: -1rem 0 2rem;
         font-size: 0.94rem;
 }
+
+/*
+ * Safety net for dark buttons.
+ *
+ * variables.scss sets accent-color, hover-over-accent-color and
+ * text-over-accent-color to the same #0f172a. Anything the theme paints in
+ * accent-color on a dark fill therefore renders as an invisible label. It hit
+ * the footer headings, the contact button, and the Projects filter control,
+ * which showed up as a plain black rectangle under the section heading.
+ *
+ * The token itself is left alone because it is used on light grounds too.
+ * This makes sure a .btn-dark always has a readable label wherever one appears.
+ */
+.btn-dark,
+.btn-dark:hover,
+.btn-dark:focus {
+        color: #f8fafc !important;
+}
+
+/* Same story in the blog pagination: the current page number sat on an
+   accent-coloured pill in accent-coloured type, so the "1" was invisible. */
+.pagination .page-item.active .page-link,
+.pagination .page-link[aria-current="page"] {
+        color: #f8fafc !important;
+}
