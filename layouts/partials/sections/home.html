@@ -153,6 +153,9 @@
         {{ with .contactCta }}
           <a class="hero-cta" href="mailto:{{ .email }}?subject={{ .subject | urlquery }}">{{ .label }}</a>
         {{ end }}
+        {{ with .servicesLink }}
+          <a class="hero-secondary" href="{{ .url | relURL }}">{{ .label }}</a>
+        {{ end }}
       </div>
     {{ end }}
     {{ if $sections }}

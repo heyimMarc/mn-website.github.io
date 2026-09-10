@@ -22,6 +22,7 @@
       {{ with $about.contactCta }}
         <a class="contact-cta" href="mailto:{{ .email }}?subject={{ printf "%s (%s)" .subject $.Title | urlquery }}">{{ .label }}</a>
       {{ end }}
+      {{ with $about.servicesLink }}<a class="pab-link" href="{{ .url | relURL }}">{{ .label }}</a>{{ end }}
       <a class="pab-link" href="{{ "posts/" | relLangURL }}">All posts</a>
     </div>
   </div>

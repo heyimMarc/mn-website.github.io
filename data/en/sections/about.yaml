@@ -28,6 +28,10 @@ contactCta:
   email: "me@marc-nuetzel.de"
   subject: "Project enquiry"
 
+servicesLink:
+  label: "What I take on, and how I work"
+  url: /services/
+
 # your social links
 # give as many as you want. use font-awesome for the icons.
 socialLinks:

@@ -225,11 +225,11 @@ params:
 
     # Enable this to use `embed-pdf` shortcode.
     embedpdf:
-      enable: true
+      enable: false # no post uses it; keeps mermaid/katex/plyr/pdf.js out of the bundle
 
     # Enable this to create flowcharts using shortcodes.
     flowchart:
-      enable: true
+      enable: false # no post uses it; keeps mermaid/katex/plyr/pdf.js out of the bundle
       services:
         # Uncomment for `mermaid` shortcode.
         mermaid:
@@ -238,7 +238,7 @@ params:
 
     # Enable this to create mathematic expressions using `$$` blocks
     math:
-      enable: true
+      enable: false # no post uses it; keeps mermaid/katex/plyr/pdf.js out of the bundle
       services:
         # https://katex.org/docs/autorender.html#api for more configurations
         katex:
@@ -269,7 +269,7 @@ params:
     #   codeFences: false
     # ```
     syntaxHighlight:
-      enable: true
+      enable: false # Hugo's Chroma highlights at build time; hljs pulled every language into the bundle
       services:
         hljs:
           # see: https://highlightjs.readthedocs.io/en/latest/api.html#configure
@@ -277,7 +277,7 @@ params:
 
     # Enable to use `video-player` shortcode
     videoPlayer:
-      enable: true
+      enable: false # no post uses it; keeps mermaid/katex/plyr/pdf.js out of the bundle
       services:
         # convert .js-player class into video player via https://plyr.io/
         # Can play HTML5 Video, Audio, Youtube, Vimeo.
