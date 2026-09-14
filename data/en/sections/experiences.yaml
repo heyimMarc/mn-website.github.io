@@ -22,6 +22,7 @@ experiences:
   positions:
   - designation: Senior Backend Engineer (Kotlin / Java)
     start: May 2025
+    end: December 2026
     responsibilities:
     - Contributed to a greenfield, event-sourced platform that serves as the system of record for property units and the full lifecycle of their metering devices (installation, replacement, removal)
     - Part of the team building the backend in Kotlin on Spring Boot 4 / Java 25, running in production on Azure Kubernetes Service
