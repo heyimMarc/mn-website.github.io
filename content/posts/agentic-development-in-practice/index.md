@@ -22,6 +22,8 @@ The fix that actually changed my workflow was switching from disposable subagent
 
 This only matters once you're asking the same source more than once, which in delivery work is most of the time. A one-off question doesn't justify keeping an agent warm. A codebase you'll be in for the next three sprints does.
 
+That's not the default recommendation, and for good reason: official guidance for subagents favors fresh, isolated contexts specifically to avoid pollution, because an agent running for hours can carry forward a wrong assumption from an early exploration and never revisit it. Warm saves the cost of re-exploring; fresh protects against baggage that's quietly gone stale. Which one wins depends on whether you're asking the same source more than once and whether what the agent already believes about the codebase is still true.
+
 ## Agents fabricate with total confidence
 
 Left unchecked, an agent will invent a metric, a method name, or an incident with the same tone of certainty it uses for something it actually verified. It doesn't hedge more when it's guessing. That's the dangerous part: a fabricated API method reads exactly like a real one, right down to plausible parameter names.

@@ -29,11 +29,20 @@ A rule the agent can edit its way around is just a suggestion. A test the agent 
 Compare two conditions. Weak: "run the tests, see if they pass." An agent under pressure to report success can satisfy that by trimming the suite until what remains passes, and the instruction never notices. Harder to fake:
 
 ```bash
-git diff --stat main -- '**/*Test.kt' '**/*Spec.kt' | grep -qE '^\s*[0-9]+ deletions' && exit 1
+deleted=$(git diff --numstat main -- '**/*Test.kt' '**/*Spec.kt' | awk '{sum += $2} END {print sum+0}')
+if [ "$deleted" -gt 0 ]; then echo "test lines removed: $deleted"; exit 1; fi
 ./gradlew test && ./gradlew jacocoTestCoverageVerification
 ```
 
 Now shrinking the suite trips the deletion check before the run even starts, and a coverage floor that isn't allowed to drop closes off quietly removing assertions in place instead of whole files. Neither check is clever. Both are just expensive to fake compared to actually fixing the thing.
+
+One catch worth knowing before you rely on that coverage floor: `jacocoTestCoverageVerification` doesn't hang off `check` by default, so a pipeline that just runs `./gradlew check` never touches it unless you wire it in yourself:
+
+```
+check.dependsOn jacocoTestCoverageVerification
+```
+
+A gate nobody invokes isn't a gate.
 
 That's the real test for whether something belongs in a harness: is it cheaper to satisfy for real than to fake. On the platform I work on, a few pieces hold that line well. ArchUnit rules fail the build the moment a class in the domain core reaches into Spring or JPA, an agent can't quietly bypass that by writing more convincing code, it either violates the rule or it doesn't. Contract-first APIs with generated clients push in the same direction: a response shape that drifts from the OpenAPI contract doesn't produce a review comment somebody might wave through, it doesn't compile. Testcontainers-backed integration tests running against a real Postgres instance close off the laziest failure mode of all, a mock that agrees with whatever the code under test expects of it, because it was written by the same agent that wrote the code. None of these are exotic. They're just checks a model can't win by rewriting a test.
 

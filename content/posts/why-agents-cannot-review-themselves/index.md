@@ -12,7 +12,7 @@ tags: ["ai", "claude-code", "agents", "code-review", "architecture"]
 categories: ["backend"]
 ---
 
-A review agent that has read the proposed solution before forming its own opinion will confirm that solution almost every time, and the confirmation is worth almost nothing. I run Claude Code daily on an event-sourced Kotlin and Spring Boot platform on AKS, and I've watched this happen often enough that I stopped treating it as a prompting problem. It isn't one. It's structural, and it applies to human reviewers too, just less severely, because an agent trained to be cooperative has even less appetite for telling you your plan is wrong.
+A review agent that has already read your solution tends to confirm it, and that confirmation is worth far less than it looks. I run Claude Code daily on an event-sourced Kotlin and Spring Boot platform on AKS, and I've watched it happen often enough to stop treating it as a prompting problem. It has a name in the research on LLM-as-judge setups, self-preference and framing bias, though what I can offer is repeated observation rather than a measured rate. Human reviewers do the same thing, just less severely. Whether a cooperative agent does it more than a human is a moving target: providers train against sycophancy, and how strong the effect is shifts between model generations, so don't assume it has quietly gone away.
 
 ## The frame problem
 
