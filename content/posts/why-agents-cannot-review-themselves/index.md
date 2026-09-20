@@ -1,6 +1,6 @@
 ---
 title: "Why Agents Cannot Review Themselves"
-date: 2026-12-07T09:00:00+01:00
+date: 2026-12-14T09:00:00+01:00
 draft: true
 description: "A review agent that already knows the proposed solution judges inside that solution's frame instead of against it. What actually forces an independent opinion, and where a test should have replaced the review in the first place."
 menu:
